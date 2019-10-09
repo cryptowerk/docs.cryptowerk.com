@@ -1,14 +1,14 @@
 const config = {
 	"gatsby": {
 		"pathPrefix": "/",
-		"siteUrl": "https://learn-cryptowerk-sandbox.netlify.com/",
+		"siteUrl": "https://docs-cryptowerk-sandbox.netlify.com/",
 		"gaTrackingId": "UA-104006776-1"
 	},
 	"header": {
 		"logo": "https://developers.cryptowerk.com/platform/image/portal/Cryptowerk.png",
 		"logoLink": "https://developers.cryptowerk.com/platform/portal/index.html",
 		"title": "Docs",
-		"githubUrl": "https://github.com/i001962/learn.cryptowerk.com",
+		"githubUrl": "https://github.com/cryptowerk/docs.cryptowerk.com",
 		"helpUrl": "https://join.slack.com/t/cryptowerk-community/shared_invite/enQtNTM5MzE4MDE0ODU0LWU4ZmFkYzAwOTc0ODk0NDExYjM2NjAzNTFmZTAwNDliMGFkYmUyN2UzNjVjN2M2MjAzZmY0OTNkMTBhMGY3M2E",
 		"tweetText": "I'm learning how to seal digital assets with @cryptowerkcorp",
 		"links": [
@@ -41,9 +41,9 @@ const config = {
 	},
 	"siteMetadata": {
 		"title": "Developer Knowledge Base | Cryptowerk",
-		"description": "Documentation built with mdx and Gatsby. Powering learn.cryptowerk.com ",
+		"description": "Documentation built with mdx and Gatsby. Powering docs.cryptowerk.com ",
 		"ogImage": "https://developers.cryptowerk.com/platform/image/portal/Cryptowerk.png",
-		"docsLocation": "https://github.com/i001962/learn.cryptowerk.com/tree/master/content",
+		"docsLocation": "https://github.com/cryptowerk/docs.cryptowerk.com/tree/master/content",
 		"favicon": "https://gn680kq70q1w32f915vk8a75-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/cryptowerk-favicon-1.png"
 	},
 };

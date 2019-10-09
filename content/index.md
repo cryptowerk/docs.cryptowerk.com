@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
-metaTitle: "Learn about Cryptowerk Horizon API"
-metaDescription: "Learn about Cryptowerk Horizon API"
+metaTitle: "Docs for Cryptowerk Horizon API"
+metaDescription: "Docs for Cryptowerk Horizon API"
 ---
 import YoutubeEmbed from "YoutubeEmbed.js";
 

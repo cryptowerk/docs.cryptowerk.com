@@ -9,12 +9,12 @@ $ npm start
 ```
 
 
-## 🚀 Quickstart for learn.cryptowerk.com
+## 🚀 Quickstart for docs.cryptowerk.com
 
 Get started by running the following commands:
 
 ```
-$ git clone https://github.com/i001962/learn.cryptowerk.com.git
+$ git clone https://github.com/cryptowerk/docs.cryptowerk.com.git
 $ npm install
 $ npm start
 ```
@@ -80,4 +80,4 @@ Canonical URLs are generated automatically.
 
 ## ☁️ Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/i001962/learn.cryptowerk.com)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cryptowerk/docs.cryptowerk.com)
