@@ -21,7 +21,7 @@ Sign-up or Login
 
 Select the **Account menu** and locate the API Key and Secret Credential. Save these two values with a <span style="font-size:larger;">***space***</span> in between them. You can only view the credentials once.
 
- ![get api key](./quickstart-img1.png)
+ ![get api key image](quickstart-img1.png)
 
 The apiKey is visible and the yourAPICredential is secret and may only be accessed once.
 

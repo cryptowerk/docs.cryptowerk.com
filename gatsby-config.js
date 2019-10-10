@@ -12,14 +12,19 @@ const plugins = [
   },
   'gatsby-plugin-styled-components',
   {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [ `gatsby-remark-images` ],
+      }
+    },
+  {
     resolve: 'gatsby-plugin-mdx',
     options: {
       gatsbyRemarkPlugins: [
         {
           resolve: "gatsby-remark-images",
           options: {
-            maxWidth: 1035,
-            sizeByPixelDensity: true
+            maxWidth: 1035
           }
         },
         {
