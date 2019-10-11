@@ -3,7 +3,7 @@ title: "Quick Start"
 metaTitle: "Getting Started with Cryptowerk Horizon API"
 metaDescription: "Getting Started with Cryptowerk Horizon API"
 ---
-# Overview
+## Overview
 Cryptowerk Horizon API writes hashes of data into the Bitcoin and Ethereum blockchain by default. Hashes will be submitted in the `/register` call and the result contains a unique retrieval-ID. Cryptowerk bundles the collected
 hashes and creates a single super-hash. This super-hash is then anchored into the blockchains of your choosing. After the super-hash has been anchored in one or more blockchains, the retrieval-ID may be exchanged for a Seal. A Seal contains the information necessary to prove that a hash was written to a blockchain.
 
@@ -11,12 +11,12 @@ The flows supported by this API are:
 
 Hash  -->  retrieval-ID  -->  Seal
 
-## What you will indeed
+### What you will indeed
  - Cryptowerk Horizon API credentials
  - Terminal or Command Prompt access
 
-# Getting Started
-## API Key and Credentials
+## Getting Started
+### API Key and Credentials
 Sign-up or Login
 
 Select the **Account menu** and locate the API Key and Secret Credential. Save these two values with a <span style="font-size:larger;">***space***</span> in between them. You can only view the credentials once.
@@ -31,10 +31,15 @@ Open a command line terminal
 
 ```
 echo -n "simple text" | shasum -a 256
-
-Creates Hash: "2609c7c28788898a337c063ff1c3b92275832bddeda014a790d109fad3ba85e2"
 ```
-
+Creates Hash:
+```
+2609c7c28788898a337c063ff1c3b92275832bddeda014a790d109fad3ba85e2
+```
+However you're likely going to want to hash a file. Try this:
+```
+openssl dgst -sha256 <filename>
+```
 ## Call Register API with Hashes
 Using the values from step 1 and 2 open a terminal and enter
 ```

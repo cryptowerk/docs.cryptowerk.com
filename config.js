@@ -13,7 +13,7 @@ const config = {
 		"tweetText": "I'm learning how to seal digital assets with @cryptowerkcorp",
 		"links": [
 			/* { "text": "Login", "link": "https://developers.cryptowerk.com/platform/portal/index.html", "setColor": "btn btn-primary"} */
-			{ "text": "Free Trial", "link": "https://developers.cryptowerk.com/platform/permalink/sealapisignuptrial", "setColor": "btn btn-danger" }
+			{ "text": "Get API Key", "link": "https://developers.cryptowerk.com/platform/permalink/sealapisignuptrial", "setColor": "btn btn-danger" }
 		],
 		"search": {
 			"enabled": false,
@@ -28,9 +28,7 @@ const config = {
 					"/index",
 					"/quickstart",
 					"/tutorials",
-					"/faq",
-					"/troubleshooting"
-		],
+					"/faq"		],
 		"links": [
 			{ "text": "App Console", "link": "https://developers.cryptowerk.com/platform/portal/index.html"},
 			{ "text": "API Explorer", "link": "https://developers.cryptowerk.com/platform/portal/swagger.html"},

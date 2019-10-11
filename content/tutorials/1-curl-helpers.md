@@ -1,9 +1,8 @@
 ---
-title: "cURL Helper"
-metaTitle: "cURL Helpers for Cryptowerk Horizon API - Tutorials"
-metaDescription: "Cryptowerk AWS cURL Helpers - Tutorials"
+title: "cURL Command Line Helpers"
+metaTitle: "cURL Command Line Helpers for Cryptowerk Horizon API - Tutorials"
+metaDescription: "Cryptowerk AWS cURL Command Line Helpers - Tutorials"
 ---
-
 In this tutorial we will setup a few helpful utilities when using cURL from a command line terminal. There are two utilities that help increase productivity when using cURL.
 
  1. The Jq JSON processor
@@ -11,12 +10,12 @@ In this tutorial we will setup a few helpful utilities when using cURL from a co
 
 Below you will find instructions for using both of these utilities with the Cryptowerk Horizon API. To begin open a command line terminal.
 
-### Install Jq
+## Install Jq
 jq is a lightweight and flexible command-line JSON processor. This will make reading the output of the API calls a bit easier. https://stedolan.github.io/jq/download/
 - OS X users  [Homebrew](http://brew.sh/)  to install jq with  `brew install jq`
 -   Windows users  [Chocolatey NuGet](https://chocolatey.org/)  to install jq 1.5 with  `chocolatey install jq`.
 
-### Environment Variables
+## Environment Variables
 Enter each of these commands into the terminal to setup your cURL environment to more easily access the API from the command line:
 
 1. Pick a directory that you have read and write access to.
@@ -51,7 +50,7 @@ server="https://developers.cryptowerk.com/platform"
 
 
 
-REGISTER
+## Register Examples
 
 ### Register Hashes
 
@@ -94,7 +93,7 @@ $server/API/v6/register \
 | jq
 ```
 
-## POLLING
+## Polling Examples
 
 ###  Verify Doc Integrity by hashing Doc and comparing to a seal (uses data from file written in previous register call)
 
@@ -116,7 +115,7 @@ $server/API/v6/verify \
 | tee /Users/kmm/Dropbox/cw-temp/verify.$$.json \
 | jq
 ```
-## VERIFY
+## Verify Examples
 
 ### Verify using a DocHash -- may return a lot of RetrievalIDs and Seals
 
@@ -128,7 +127,7 @@ $server/API/v6/verify \
 | jq
 ```
 _______
-### REGISTER AND THEN VERIFY
+### Register And Then Verify
 Register a hash
 
 ```
