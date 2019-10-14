@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Support Center"
 metaTitle: "Getting Started with Cryptowerk Horizon API"
 metaDescription: "Getting Started with Cryptowerk Horizon API"
 ---

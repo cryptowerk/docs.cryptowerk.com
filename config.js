@@ -28,7 +28,9 @@ const config = {
 					"/index",
 					"/quickstart",
 					"/tutorials",
-					"/faq"		],
+					"/faq",
+					"/support"
+				],
 		"links": [
 			{ "text": "App Console", "link": "https://developers.cryptowerk.com/platform/portal/index.html"},
 			{ "text": "API Explorer", "link": "https://developers.cryptowerk.com/platform/portal/swagger.html"},
