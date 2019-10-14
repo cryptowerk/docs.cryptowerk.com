@@ -105,7 +105,7 @@ $server/API/v6/verify \
 
 ```
 
-### Get Seal with RetrievalID (uses data from file written in previous register call)
+### Get Seal with retrieval-ID (uses data from file written in previous register call)
 
 ```
 
@@ -117,7 +117,7 @@ $server/API/v6/verify \
 ```
 ## Verify Examples
 
-### Verify using a DocHash -- may return a lot of RetrievalIDs and Seals
+### Verify using a DocHash -- may return a lot of retrieval-IDs and Seals
 
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
@@ -138,7 +138,7 @@ $server/API/v6/register \
 | jq
 ```
 
-Poll for the Seal using RetrievalID                         
+Poll for the Seal using retrieval-ID                         
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
 --data "retrievalId=$(jq --raw-output </tmp/register.$$.json '.documents[0].retrievalId')&provideVerificationInfos=true${sealFormat}" \
