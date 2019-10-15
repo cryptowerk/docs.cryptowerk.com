@@ -33,7 +33,7 @@ const config = {
 		"links": [
 			{ "text": "App Console", "link": "https://developers.cryptowerk.com/platform/portal/index.html"},
 			{ "text": "API Explorer", "link": "https://developers.cryptowerk.com/platform/portal/swagger.html"},
-			{ "text": "Useer Guide", "link": "https://cryptowerk.sharepoint.com/:p:/s/Portal/Ecg6fAmzAI5NvpqE2Vaf3ukBVHDYp8So33HZwQKlslW6hg?e=UO9LMs"},
+			{ "text": "User Guide", "link": "https://cryptowerk.sharepoint.com/:p:/s/Portal/Ecg6fAmzAI5NvpqE2Vaf3ukBVHDYp8So33HZwQKlslW6hg?e=UO9LMs"},
 			{ "text": "Cryptowerk.com", "link": "https://cryptowerk.com"},
 		],
 		"frontline": false,  //KMM what does this do??
