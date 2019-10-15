@@ -28,8 +28,7 @@ const config = {
 					"/index",
 					"/quickstart",
 					"/tutorials",
-					"/faq",
-					"/z-examples"
+					"/faq"
 						],
 		"links": [
 			{ "text": "App Console", "link": "https://developers.cryptowerk.com/platform/portal/index.html"},
