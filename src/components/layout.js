@@ -5,6 +5,7 @@ import ThemeProvider from "./themeProvider";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
 import RightSidebar from "./rightSidebar";
+import Footer from "./Footer";
 
 const Wrapper = styled('div')`
   display: flex;
@@ -55,6 +56,7 @@ const Layout = ({ children, location }) => (
           <RightSidebar location={location} />
         </RightSideBarWidth>
       </Wrapper>
+      <Footer />
     </MDXProvider>
   </ThemeProvider>
 );

@@ -246,6 +246,98 @@ pre {
 }
 
 /* Header section ends here */
+
+
+/* Footer section starts here */
+.navFooterBarDefault {
+  background-color: #333F50;
+  border-radius: 0;
+  border-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+/*  box-shadow: -1px 0px 4px 1px rgba(26,107,212,.4);
+  -webkit-box-shadow: -1px 0px 4px 1px rgba(26,107,212,.4);
+  -moz-box-shadow: -1px 0px 4px 1px rgba(26,107,212,.8);
+  -o-box-shadow: -1px 0px 4px 1px rgba(26,107,212,.4); */
+  z-index: 1;
+  padding: 15px;
+}
+.navFooterBarFooter {
+  min-width: 335px;
+  padding-right: 20px;
+}
+.navFooterBarBrand {
+  height: auto;
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #fff !important;
+  padding: 0px 0px;
+  display: flex;
+  align-items: center;
+
+}
+
+.navFooterBarBrand img {
+  width: 130px;
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.navFooterBarUL li a {
+  font-family: 'Roboto';
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1em;
+  opacity: 1;
+}
+.navFooterBarNav
+{
+  display: flex;
+  align-items: center;
+}
+.navFooterBarUL li a img, .navFooterBarUL li a .shareIcon
+{
+  width: 20px;
+}
+.navFooterBarUL .btn-primary
+{
+    color: #fff;
+    background-color: rgb(217, 109, 0);
+    border-color: rgb(217, 109, 0);
+}
+
+.mainWrapper {
+  color: rgb(59, 69, 78);
+  max-width: 750px;
+}
+.navFooterBarUL li a:hover {
+  opacity: .7;
+}
+pre {
+  border: 0 !important;
+  background-color: rgb(245, 247, 249); /* !important; */
+}
+
+.mainWrapper ul, .mainWrapper ol {
+  -webkit-padding-start: 40px;
+  -moz-padding-start: 40px;
+  -o-padding-start: 40px;
+  margin: 24px 0px;
+  padding: 0px 0px 0px 2em;
+}
+
+.mainWrapper ul li, .mainWrapper ol li {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* Footer section ends here */
+
 .headerNav {
   font-family: 'Roboto';
   padding: 0px 24px;
