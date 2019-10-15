@@ -1,5 +1,4 @@
 KMM Test downstream changes
-[![Netlify Status](https://api.netlify.com/api/v1/badges/169f211e-8b2e-4c56-bafe-0f632f6dd1fc/deploy-status)](https://app.netlify.com/sites/docs-trying-new-stuff/deploys)
 # Inspired by gatsby-gitbook-starter from Hasura.io
 
 See their repo for all the goods. They get the credit here. We like what they are doing and pull from them.
