@@ -5,13 +5,13 @@ metaDescription: "Getting Started with Cryptowerk Horizon API"
 ---
 ## Overview
 Cryptowerk Horizon API writes hashes of data into the Bitcoin and Ethereum blockchain by default. Hashes will be submitted in the `/register` call and the result contains a unique retrieval-ID. Cryptowerk bundles the collected
-hashes and creates a single super-hash. This super-hash is then anchored into the blockchains of your choosing. After the super-hash has been anchored in one or more blockchains, the retrieval-ID may be exchanged for a Seal. A Seal contains the information necessary to prove that a hash was written to a blockchain.
+hashes and creates a single super-hash. This super-hash is then anchored into the blockchains of your choice. After the super-hash has been anchored in one or more blockchains, the retrieval-ID may be exchanged for a Seal. A Seal contains the information necessary to prove that a hash was written to a blockchain.
 
 The flows supported by this API are:
 
 Hash  -->  retrieval-ID  -->  Seal
 
-### What you will indeed
+### What you will need
  - Cryptowerk Horizon API credentials
  - Terminal or Command Prompt access
 
