@@ -12,8 +12,8 @@ const config = {
 		"helpUrl": "https://join.slack.com/t/cryptowerk-community/shared_invite/enQtNTM5MzE4MDE0ODU0LWU4ZmFkYzAwOTc0ODk0NDExYjM2NjAzNTFmZTAwNDliMGFkYmUyN2UzNjVjN2M2MjAzZmY0OTNkMTBhMGY3M2E",
 		"tweetText": "I'm learning how to seal digital assets with @cryptowerkcorp",
 		"links": [
-			/* { "text": "Login", "link": "https://developers.cryptowerk.com/platform/portal/index.html", "setColor": "btn btn-primary"} */
-			{ "text": "Get API Key", "link": "https://developers.cryptowerk.com/platform/permalink/sealapisignuptrial", "setColor": "btn btn-danger" }
+			/* using this for Get API Key Button -important only 1 entry in array */
+			{ "text": "Get API Key", "link": "https://developers.cryptowerk.com/platform/permalink/sealapisignuptrial", "setColor": "btn btn-primary" }
 		],
 		"search": {
 			"enabled": false,
@@ -28,10 +28,13 @@ const config = {
 					"/index",
 					"/quickstart",
 					"/tutorials",
-					"/faq"		],
+					"/faq",
+					"/z-examples"
+						],
 		"links": [
 			{ "text": "App Console", "link": "https://developers.cryptowerk.com/platform/portal/index.html"},
 			{ "text": "API Explorer", "link": "https://developers.cryptowerk.com/platform/portal/swagger.html"},
+			{ "text": "Useer Guide", "link": "https://cryptowerk.sharepoint.com/:p:/s/Portal/Ecg6fAmzAI5NvpqE2Vaf3ukBVHDYp8So33HZwQKlslW6hg?e=UO9LMs"},
 			{ "text": "Cryptowerk.com", "link": "https://cryptowerk.com"},
 		],
 		"frontline": false,  //KMM what does this do??
