@@ -5,7 +5,9 @@ const SupportRequest = ({form}) => {
 	return (
 		<div className="video-responsive">
 		<form method="POST" action="https://developers.cryptowerk.com/platform/portal/submitSupportMessage">
-		   <div className="form-group">
+		  <input hidden="hidden" name="numTicketId" />
+		  <input hidden="hidden" name="optAccountId" id="optAccountId" />
+		  <div className="form-group">
 		    <div className="form-row">
 		      <input className="form-control" name="optName" id="optName" type="text" aria-describedby="nameHelp" placeholder="Name" />
 		    </div>

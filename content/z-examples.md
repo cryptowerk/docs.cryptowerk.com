@@ -55,4 +55,4 @@ import CommunityAuthor from 'CommunityAuthor.js';
 
 
 <ButtonGetAPIKey />
-<SupportRequest form="https://www.youtube.com/embed/dG5FXKfaOVQ"/>
+<SupportRequest form="https://developers.cryptowerk.com/platform/portal/submitSupportMessage/">
