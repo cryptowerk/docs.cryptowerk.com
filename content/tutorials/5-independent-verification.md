@@ -1,5 +1,5 @@
 ---
-title: "Independent verification"
+title: "Independent Verification"
 metaTitle: "Sealing With Callbacks -Cryptowerk Tutorials"
 metaDescription: "Cryptowerk Sealing With Callbacks - Tutorials"
 ---

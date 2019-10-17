@@ -1,7 +1,7 @@
 ---
-title: "Sealing Data"
-metaTitle: "FAQ - Sealing Data"
-metaDescription: "Cryptowerk FAQ - Sealing Data"
+title: "Register Data"
+metaTitle: "FAQ - Register Data"
+metaDescription: "Cryptowerk FAQ - Register Data"
 ---
 ## What is “sealing” a document or piece of data?  What does that do for my customers?
 The Sealing of a document or other piece of data starts with the creation of the digital equivalent of a fingerprint of that data by creating a hash of the data, using most often a 256 SHA 32-bit algorithm. Just as fingerprints are unique, so hashes are unique to their original data. These hashes are then passed on (through a REST API) to Cryptowerk. For increased security and efficiency, Cryptowerk processes these hashes into bundles and generates a “hash of hashes” (super-hash) which then are stored in the blockchains. For each of the hashes received, Cryptowerk returns a “Seal” back to you. The data is now successfully “sealed”. Such a Seal is specific to each hash and contains information about the hash and the link to the blockchains. Cryptowerk recommends that you store these Seals with your original data.
@@ -32,7 +32,6 @@ Because of our unique and patented sealing algorithms, we’re currently able to
 
 ## How many transactions can Cryptowerk Horizon handle per second?
 Cryptowerk Horizon can process up to one million hashes per second. Any excess transactions are queued and addressed as quickly as possible.
-
 
 ## Are my Seals private?
 Yes. Only the party who has sent hashes to the Cryptowerk Seal API will receive a unique Seal for each hash back. Cryptowerk will not share Seals with any third party, unless this is requested by the customers.

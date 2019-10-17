@@ -1,7 +1,7 @@
 ---
-title: "Verifying Data Integrity"
-metaTitle: "FAQ - Verifying Data Integrity"
-metaDescription: "Cryptowerk FAQ - Verifying Data Integrity"
+title: "Verify Data"
+metaTitle: "FAQ - Verify Data"
+metaDescription: "Cryptowerk FAQ - Verify Data"
 ---
 ## What is the process for validating sealed data with Cryptowerk?
 

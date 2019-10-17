@@ -1,5 +1,5 @@
 ---
-title: "cURL Command Line Helpers for windows"
+title: "cURL Command Line Helpers for Windows"
 metaTitle: "cURL Command Line Helpers for Cryptowerk Horizon API - Tutorials"
 metaDescription: "Cryptowerk AWS cURL Command Line Helpers - Tutorials"
 ---
