@@ -6,11 +6,11 @@ metaDescription: "Support Center"
 import CommunityAuthor from 'CommunityAuthor.js';
 
 ## Support Center
-Cryptowerk Support Center is reachable via email, our [slack channel](https://join.slack.com/t/cryptowerk-community/shared_invite/enQtNTM5MzE4MDE0ODU0LWU4ZmFkYzAwOTc0ODk0NDExYjM2NjAzNTFmZTAwNDliMGFkYmUyN2UzNjVjN2M2MjAzZmY0OTNkMTBhMGY3M2E) or via the ticketing system accessible via Cryptowerk App Console
+Cryptowerk Support Center is reachable via our support email, our [slack channel](https://join.slack.com/t/cryptowerk-community/shared_invite/enQtNTM5MzE4MDE0ODU0LWU4ZmFkYzAwOTc0ODk0NDExYjM2NjAzNTFmZTAwNDliMGFkYmUyN2UzNjVjN2M2MjAzZmY0OTNkMTBhMGY3M2E) or via the ticketing system accessible via Cryptowerk **App Console**.
+
+We look forward meeting you in our online community!
 
 
-
-Insert card for Author:
 
 <CommunityAuthor
     name="Zoe Meckbach"

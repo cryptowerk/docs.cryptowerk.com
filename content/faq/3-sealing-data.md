@@ -14,8 +14,6 @@ A Seal contains the information required to prove that a document had been regis
 ## Explain to me how Cryptowerk “queues” my requests?
 Hashes are queued on a first-in/first-out basis and submitted to the Cryptowerk Horizon API to be re-hashed and anchored in blockchains on our regular schedule.
 
-## If I lose the Seal, can I restore it from your database?
-No. Your application writes your hashes to the Cryptowerk Horizon API, in which they are re-hashed, a hash link is created and written into blockchains. At this point, for greater security, the ticket number, anchor and Seal are removed from the Cryptowerk database, so Cryptowerk no longer has access to your hashes or the Seals.
 
 ## How do I hash my customers’ data before I send it to Cryptowerk?
 There are a variety of open source and public hashing utilities available, including this simple upload-based one. Cryptowerk does not take a stance on which ones to specifically recommend.
@@ -26,9 +24,6 @@ The Cryptowerk Horizon API is designed and available as a REST API that can be c
 ## When you write into multiple blockchains, do I get a Seal for each blockchain?
 You will receive one Seal for the hash you have submitted. If the hash is written into several blockchains you will receive one Seal that shows several "proofs". Proofs show in which blockchains the hash was written.
 
-## If I send a Seal to third parties for later verification, how do they know which original data it is referring to?
-The whole purpose of Sealing data is to be able to later verify that data has remained unchanged since a specific time. Therefore, the third party must have access to the original data to be verified, though it doesn’t need to reside in its original location (i.e., it can be emailed or otherwise electronically transmitted to the third party).
-
 ## Explain to me how Cryptowerk “queues” my requests?
 Hashes are queued on a first-in/first-out basis and submitted to the Cryptowerk Horizon API to be re-hashed and anchored in blockchains on our regular schedule.
 
@@ -38,8 +33,6 @@ Because of our unique and patented sealing algorithms, we’re currently able to
 ## How many transactions can Cryptowerk Horizon handle per second?
 Cryptowerk Horizon can process up to one million hashes per second. Any excess transactions are queued and addressed as quickly as possible.
 
-## When you write into multiple blockchains, do I get a Seal for each blockchain?
-You will receive one Seal for the hash you have submitted. If the hash is written into several blockchains you will receive one Seal that shows several "proofs". Proofs show in which blockchains the hash was written.
 
 ## Are my Seals private?
 Yes. Only the party who has sent hashes to the Cryptowerk Seal API will receive a unique Seal for each hash back. Cryptowerk will not share Seals with any third party, unless this is requested by the customers.

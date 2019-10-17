@@ -3,8 +3,14 @@ title: "Account Access"
 metaTitle: "FAQ - Account Access"
 metaDescription: "Cryptowerk FAQ - Account Access"
 ---
-## What is a REST API?
-Representational State Transfer (REST) is a software architectural style that defines a set of constraints to be used for creating web services. Web services that conform to the REST architectural style, or RESTful web services, provide interoperability between computer systems on the Internet.
+## Where do I get my API key and Credentials?
+To access your API key and Credentials simply log-in to the **App Console** and go to ***Account*** info in the App Console.
+If you do not have an account with Cryptowerk yet, you can sign-up via our [website](https://www.cryptowerk.com).
 
 ## How can I reset my API key?
-Go to the “Account” section in the App Console, click "Regenerate API Key".
+Go to the ***Account*** section in the App Console, click "Regenerate API Key".
+
+
+```
+ ![get api key image](quickstart-img1.png)
+```
