@@ -41,7 +41,7 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
         <ul>
           {items.map((item) => (
             <TreeNode
-              key={item.url}
+              key={Math.random()}
               setCollapsed={setCollapsed}
               collapsed={collapsed}
               {...item}

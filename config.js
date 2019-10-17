@@ -12,8 +12,8 @@ const config = {
 		"helpUrl": "https://join.slack.com/t/cryptowerk-community/shared_invite/enQtNTM5MzE4MDE0ODU0LWU4ZmFkYzAwOTc0ODk0NDExYjM2NjAzNTFmZTAwNDliMGFkYmUyN2UzNjVjN2M2MjAzZmY0OTNkMTBhMGY3M2E",
 		"tweetText": "I'm learning how to seal digital assets with @cryptowerkcorp",
 		"links": [
-			/* { "text": "Login", "link": "https://developers.cryptowerk.com/platform/portal/index.html", "setColor": "btn btn-primary"} */
-			{ "text": "Get API Key", "link": "https://developers.cryptowerk.com/platform/permalink/sealapisignuptrial", "setColor": "btn btn-danger" }
+			/* using this for Get API Key Button -important only 1 entry in array */
+			{ "text": "Get API Key", "link": "https://developers.cryptowerk.com/platform/permalink/sealapisignuptrial", "setColor": "btn btn-primary" }
 		],
 		"search": {
 			"enabled": false,
