@@ -9,23 +9,28 @@ metaDescription: "Cryptowerk Sealing With Callbacks - Tutorials"
 Yes, you can, just yourself, in particular without requiring anything from Cryptowerk, for as long as at least one of the blockchain(s) exist.
 
 The flow of registering data works like this:
+Example case: You have a (potentially confidential) document. You want to be able to prove to any third party that this document existed at a certain time and hasn't been altered. For instance, your document is the text "Life is beautiful." (without any newline at the end).
 
-    Example case: You have a (potentially confidential) document. You want to be able to prove to any third party that this document existed at a certain time and hasn't been altered. For instance, your document is the text "Life is beautiful." (without any newline at the end).
+You create a cryptographic hash of your document. You can pick any hash algorithm you like and any tool or method of how to produce it. Let's say you pick SHA-256, you use command line tools, and you happen to run those on a Mac. To get the hash you would do
+```
+echo -n "Life is beautiful." | shasum -a 256 or echo -n "Life is beautiful." | openssl sha256 The result is 2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a.
+```
+That's the hexadecimal notation for 32 bytes of data.
 
-    You create a cryptographic hash of your document. You can pick any hash algorithm you like and any tool or method of how to produce it. Let's say you pick SHA-256, you use command line tools, and you happen to run those on a Mac. To get the hash you would do echo -n "Life is beautiful." | shasum -a 256 or echo -n "Life is beautiful." | openssl sha256 The result is 2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a. That's the hexadecimal notation for 32 bytes of data.
+Please note that, (a) this effectively anonymizes your data. Given only the hash, you cannot deduce the original document. (b) You don't need any keys, neither public nor private. No key management required. (c) It is computationally infeasible (read "impossible") to construct another document that yields the same hash. For instance, a document that would say "Life is not beautiful."
 
-    Please note that, (a) this effectively anonymizes your data. Given only the hash, you cannot deduce the original document. (b) You don't need any keys, neither public nor private. No key management required. (c) It is computationally infeasible (read "impossible") to construct another document that yields the same hash. For instance, a document that would say "Life is not beautiful."
+Technical detail: (a) actually assumes that there is sufficient entropy in the original document. Otherwise you could try to guess it and check whether the hash matches your guess. You can easily solve that by adding random contents, usually called a nonce. For instance, "Life is beautiful. (Please ignore this number: 787729283.)" The document semantically still says the same. However, an attacker would need to know or guess this random number, which is not possible if you don't publish the number and make it long enough.
 
-    Technical detail: (a) actually assumes that there is sufficient entropy in the original document. Otherwise you could try to guess it and check whether the hash matches your guess. You can easily solve that by adding random contents, usually called a nonce. For instance, "Life is beautiful. (Please ignore this number: 787729283.)" The document semantically still says the same. However, an attacker would need to know or guess this random number, which is not possible if you don't publish the number and make it long enough.
+You register the hash in one or multiple blockchains by calling our API
 
-    You register the hash in one or multiple blockchains by calling our API:
-    ```
-    curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" $server/API/v6/register You get server, apiKey and apiCred from us. Also, on request you can choose which blockchains you want your document to be registered in. We support several public and private blockchains. You can register many hashes in the same API call. Just separate them by a comma like this: curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333" $server/API/v6/register
-    ```
+```
+curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" $server/API/v6/register You get server, apiKey and apiCred from us. Also, on request you can choose which blockchains you want your document to be registered in. We support several public and private blockchains. You can register many hashes in the same API call. Just separate them by a comma like this: curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333" $server/API/v6/register
+```
 
-    Note that you didn't provide us with the actual document, just its hash. So, we don't know it. So, we can't leak it nor can it be stolen from us. It never leaves your computer. No trust into any security measures is required.
+Note that you didn't provide us with the actual document, just its hash. So, we don't know it. So, we can't leak it nor can it be stolen from us. It never leaves your computer. No trust into any security measures is required.
 
 The API responds:
+
 ```
 {
    "maxSupportedAPIVersion": 6,
