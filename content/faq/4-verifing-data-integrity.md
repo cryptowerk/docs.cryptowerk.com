@@ -11,10 +11,6 @@ You can use the verify API call in your application to allow you or any third pa
 
 No. That said, you can also verify your data by directly querying the blockchains on which the super-hash is stored without using the Cryptowerk Seal API.
 
-## Which hash algorithms do you support?
-
-We recommend the use of SHA-256 (Secure Hashing Algorithm) to generate hashes but also support hashes created by a compatible hashing utility.
-
 ## If I lose the Seal, can I restore it from your database?
 
 No. Your application writes your hashes to the Cryptowerk Horizon API, in which they are re-hashed, a hash link is created and written into blockchains. At this point, for greater security, the ticket number, anchor and Seal are removed from the Cryptowerk database, so Cryptowerk no longer has access to your hashes or the Seals.

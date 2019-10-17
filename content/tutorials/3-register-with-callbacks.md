@@ -1,8 +1,42 @@
 ---
-title: "Sealing With Callbacks"
+title: "Register with Callbacks"
 metaTitle: "Sealing With Callbacks -Cryptowerk Tutorials"
 metaDescription: "Cryptowerk Sealing With Callbacks - Tutorials"
 ---
+
+This tutorial explains how to register with callbacks and how to receive Seals via callbacks.
+
+### Register with callback
+In this example we are using [requestbin](http://requestbin.com)
+
+```
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+--data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&callback=http:jsonplain:http://requestbin.fullcontact.com/14nv2lr1" \
+$server/API/v5/register \
+| tee ~/cw-temp/register.$$.json \
+| jq
+```
+
+### Register with callback using email
+
+```
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+--data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&callback=email:jsonplain:callbacktest@mailinator.com" $server/API/v5/register \
+| tee ~/cw-temp/register.$$.json \
+| jq
+
+```
+
+### Register with callback using mqtt
+
+```
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+--data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&callback=mqtt:tcp://mqttcc1.cryptowerk.com:1883;test/topic2;{myCustomId:'someid1'}" \
+$server/API/v6/register \
+| tee ~/cw-temp/register.$$.json \
+| jq
+```
+
 
 ## Receive Seal via Callbacks
 When implementing callbacks, you will receive Seals in callbacks with a small time difference. This is based on the heartbeat each blockchain has. An example: the callback you receive can tell you that Ethereum accepted your document but Bitcoin not yet. That's because Ethereum's heartbeat is about 15 seconds long. Bitcoin's heartbeat clocks at around 10 minutes. So, it shouldn't surprise you that your document has arrived in Ethereum already but not yet in Bitcoin. That's why the API says "hasBeenInsertedIntoAllRequestedBlockchains": false
@@ -86,7 +120,7 @@ If you have registered hashes into Ethereum and Bitcoin blockchain at the same t
 
 
 ## Receive one or multiple Callbacks
- Callbacks can include a mix of different hashes. Also, if different hashes are submitted with a small time difference, they come back through one callback together. This behavior is intentional.
+ Callbacks can include several payloads. Also, if several payloads are submitted with a small time difference, they come back through one callback together. This behavior is intentional.
 
  The idea behind is that it should make no difference for the callback endpoint's implementation whether it receives one, two, or more Seals. But it should be much faster to call one callback with 1000 seals than performing 1000 callback invocations with one Seal each. That is true for both the caller and the callee's side.
 
@@ -95,4 +129,4 @@ If you have registered hashes into Ethereum and Bitcoin blockchain at the same t
 curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111&lookupInfos=23&callback=$(urlEncode "http:jsonplain:${webhook}?keepthemapart=1")" $server/API/v8/register
 then curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111&lookupInfos=23&callback=$(urlEncode "http:jsonplain:${webhook}?keepthemapart=2")" $server/API/v8/register
 ```
-with this example it would then not call your endpoint once with two seals but twice with one seal each.
+with this example it would then not call your endpoint once with two Seals but twice with one Seal each.

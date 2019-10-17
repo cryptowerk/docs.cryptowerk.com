@@ -13,7 +13,15 @@ Example case: You have a (potentially confidential) document. You want to be abl
 
 You create a cryptographic hash of your document. You can pick any hash algorithm you like and any tool or method of how to produce it. Let's say you pick SHA-256, you use command line tools, and you happen to run those on a Mac. To get the hash you would do
 ```
-echo -n "Life is beautiful." | shasum -a 256 or echo -n "Life is beautiful." | openssl sha256 The result is 2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a.
+echo -n "Life is beautiful." | shasum -a 256
+```
+or
+```
+echo -n "Life is beautiful." | openssl sha256
+```
+
+```
+The result is 2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a.
 ```
 That's the hexadecimal notation for 32 bytes of data.
 
@@ -24,7 +32,11 @@ Technical detail: (a) actually assumes that there is sufficient entropy in the o
 You register the hash in one or multiple blockchains by calling our API
 
 ```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" $server/API/v6/register You get server, apiKey and apiCred from us. Also, on request you can choose which blockchains you want your document to be registered in. We support several public and private blockchains. You can register many hashes in the same API call. Just separate them by a comma like this: curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333" $server/API/v6/register
+curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" $server/API/v6/register
+```
+You get server, apiKey and apiCred from us. Also, on request you can choose which blockchains you want your document to be registered in. We support several public and private blockchains. You can register many hashes in the same API call. Just separate them by a comma like this:
+```
+curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333" $server/API/v6/register
 ```
 
 Note that you didn't provide us with the actual document, just its hash. So, we don't know it. So, we can't leak it nor can it be stolen from us. It never leaves your computer. No trust into any security measures is required.
@@ -42,7 +54,7 @@ The API responds:
    "minSupportedAPIVersion": 1
  }
 ```
-You now have a ticket ("ri2...") which you can use in subsequent API calls. If you submitted multiple hashes, you get one retrievalId per hash.
+You now have received a retrieval-Id ("ri2...") which you can use in subsequent API calls. If you submitted multiple hashes, you get one retrievalId per hash.
 
 After some time, when the blockchain(s) have accepted your document, you can retrieve the mathematical proof of it having been registered from the API. Say, you wanted to use Ethereum and Bitcoin and after some 30 sec to run this:
 ```
@@ -119,27 +131,38 @@ So, it shouldn't surprise that your document has arrived in Ethereum already but
 That's why the API says "hasBeenInsertedIntoAllRequestedBlockchains": false. More on that later.
 2. In documents.seals[0] you now find the seal, the mathematical proof with which you can prove 30 years later that life was beautiful 30 years ago.
 Note that the blockchain not only guarantees that the document wasn't altered but also provides a globally agreed on timestamp when it was registered.
-3. So, 30 years later, you take the document that you want to verify, i.e. "Life is beautiful." and - again, like back then - calculate the hash:  echo -n "Life is beautiful." | shasum -a 256
-which returns 2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a.
+3. So, 30 years later, you take the document that you want to verify, i.e. "Life is beautiful." and - again, like back then - calculate the hash:  
+```
+echo -n "Life is beautiful." | shasum -a 256
+```
+which returns
+```
+2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a
+```
 That's the same number as in documents.seals[0].operations["opcode": "DOC_SHA256"]. So far ok. But that's not connected to the blockchain yet.
 4. To verify the unbreakable link from your document and its hash to the blockchain you follow a path of hash operations, as outlined in the seal:
 You prepend '5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c' and hash again, i.e.
 echo
 ``` "5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" | xxd -p -r | shasum -a 256
+  ```
   (Note: xxd turns the hexadecimal text into actual bytes.)
   yields 9613cbf8f7c8e6ad01ec02ea5b0d8c44f059e559dfe144df6e66ad611063e073, to which you append bbe5b9c5d7dd278e842a45ba7f34bd1ccc41e5bd353665e2686bcd13ade8c1aa and hash:
+  ```
   echo "9613cbf8f7c8e6ad01ec02ea5b0d8c44f059e559dfe144df6e66ad611063e073bbe5b9c5d7dd278e842a45ba7f34bd1ccc41e5bd353665e2686bcd13ade8c1aa" | xxd -p -r | shasum -a 256
   returns c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5. Which also is noted in documents.seals[0].operations["opcode": "ANCHOR_SHA256"]
   ```
   Again, ok and nice, but no proof yet.
+
 5. The seal also tells you that Ethereum blockchain transaction 0xcb47fc2b7167bf76cb503c14893cff30a1bff5917604c65209cceb45816898e6
 is supposed to contain that very hash you just calculated.
 Let's check that by using any public and independent blockchain explorer and point your web browser at, say,
   https://rinkeby.etherscan.io/tx/0xcb47fc2b7167bf76cb503c14893cff30a1bff5917604c65209cceb45816898e6
+
 6. It shows that the blockchain contains the value
   "0x535701c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5"
 That's 0x5357 for the letters 'S' and 'W' for SealWitness in ASCII code - which is Cryptowerk's tag -, 01 for the version number 1, and the hash c323...
 It's identical to what we calculated. That proves that at the time of the hash's arrival in the blockchain (Nov-29-2018 01:32:14 AM +UTC) the statement actually was "Life is beautiful."
+
 7. Now, after some minutes, we ask the API again and check whether it also arrived in Bitcoin, which has a 10 minute heartbeat:
 ```
   curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "retrievalId=ri22218341d127a2e12eb4d6bcf17464cd1d8170516d15a1d225db62643f339bdeddd7c69" $server/API/v6/verify
@@ -261,6 +284,7 @@ curl.
   ```
   -----
 8. And yes, it's now anchored in both Ethereum and Bitcoin. It also says "hasBeenInsertedIntoAllRequestedBlockchains": true.
+
 9. By the way, instead of asking the API you can tell the API at registration time that it should notify you through an http callback and tell you about any arrival in any blockchain(s).
 
 Now you know and can prove to anyone, without Cryptowerk, just by remembering the seal that you got at registration time, that life is beautiful.
@@ -272,11 +296,15 @@ There are two more options you have:
   While you might want to write that little piece of software yourself, we actually provide you with the source code to do exactly that. It's called the "starter pack" and can be found here:
  https://developers.cryptowerk.com/platform/assets/starterpack.zip
 
-3. unpack the zip file and the example above can be verified running     
+3. Unpack the zip file and the example above can be verified running
+```    
    java -cp com.cryptowerk.sw.test.APIClientExample.jar com.cryptowerk.sw.test.SealVerifier 0x2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a @example-seals/faq-example.txt 0x535701c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5
+   ```
  which then confirms:
+ ```
    Your document has been successfully verified.
    Document submitted at=Wed Nov 28 17:31:46 PST 2018
    Registered in blockchain Ethereum.4 using TxId or Id 0xcb47fc2b7167bf76cb503c14893cff30a1bff5917604c65209cceb45816898e6 at 2018-11-28 17:32:07 PST
+   ```
 
-In summary, you just made that crucial step that permits you - when it comes to digital data - to replace trust
+In summary, you just made that crucial step that permits you - when it comes to digital data - to replace trust.

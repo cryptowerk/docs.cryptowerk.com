@@ -3,6 +3,10 @@ title: "LookupInfo"
 metaTitle: "FAQ - Verifying Data Integrity"
 metaDescription: "Cryptowerk FAQ - Verifying Data Integrity"
 ---
+## What is a lookupInfo and how is it used?
+Through the ***lookupInfo*** you can provide your own information that later helps you looking up your data where you want to put your Seal. This can be any text string.
+You will find the ***lookupInfo*** in the Seal, that helps you to look up info in your local database.
+
 ## Can the lookupInfo only be used when using callbacks?
 
 No, the ***lookupInfo*** can also be used without a callback. Cryptowerk returns the ***lookupInfo*** in the `/verify` call (only if it was supplied originally in the `/register` call) and in addition it is included in the Seal. You can find the ***lookupInfo*** in the Seal contained in “operations” called “document info”.

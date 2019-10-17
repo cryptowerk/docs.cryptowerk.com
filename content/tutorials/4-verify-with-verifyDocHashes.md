@@ -6,7 +6,7 @@ metaDescription: "Cryptowerk Sealing With Callbacks - Tutorials"
 
 In this tutorial we will give you a quick example on how to verify data using the second group of operations – verification of issued seal.
 
-Your API call looks mostly ok. It’s just that the parameter ***seals*** expects a JSON array, i.e. ‘[{...}]’ not just ‘{…}’. Please use the two following examples as a reference:
+The parameter ***seals*** expects a JSON array, i.e. ‘[{...}]’ not just ‘{…}’. Please use the two following examples as a reference:
 
 
 Using JSON:

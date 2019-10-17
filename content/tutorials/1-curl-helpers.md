@@ -24,7 +24,8 @@ Enter each of these commands into the terminal to setup your cURL environment to
 From Terminal enter each of these commands using the directory that you have created and hit enter.
 
 ```
-cd /Users/kmm/cw-temp
+mkdir ~/cw-temp
+cd ~/cw-temp
 
 function urlEncode() {
 data="$(curl -s -o /dev/null -w %{url_effective} --get --data-urlencode "q=$1" "")"
@@ -58,38 +59,7 @@ server="https://developers.cryptowerk.com/platform"
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
 --data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&lookupInfos=kmm1,kmm2,kmm3" \
 $server/API/v6/register \
-| tee /Users/kmm/cw-temp/register.$$.json \
-| jq
-```
-
-### Register with callback
-In this example we are using [requestbin](http://requestbin.com)
-
-```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&callback=http:jsonplain:http://requestbin.fullcontact.com/14nv2lr1" \
-$server/API/v5/register \
-| tee /Users/kmm/cw-temp/register.$$.json \
-| jq
-```
-
-### Register with callback using email
-
-```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&callback=email:jsonplain:callbacktest@mailinator.com" $server/API/v5/register \
-| tee /Users/kmm/cw-temp/register.$$.json \
-| jq
-
-```
-
-### Register with callback using mqtt
-
-```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&callback=mqtt:tcp://mqttcc1.cryptowerk.com:1883;test/topic2;{myCustomId:'someid1'}" \
-$server/API/v6/register \
-| tee /Users/Dropbox/cw-temp/register.$$.json \
+| tee ~/cw-temp/register.$$.json \
 | jq
 ```
 
@@ -99,7 +69,7 @@ $server/API/v6/register \
 
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "provideInstructions=false&verifyDocHashes=2221111111111111111111111111111111111111111111111111111111111111&seals=$(urlEncode "$(jq --raw-output </Users/kmm/Dropbox/cw-temp/verify.$$.json '.documents[0].seals[0]'${jqStamp})")" \
+--data "provideInstructions=false&verifyDocHashes=2221111111111111111111111111111111111111111111111111111111111111&seals=$(urlEncode "$(jq --raw-output <~/cw-temp/verify.$$.json '.documents[0].seals[0]'${jqStamp})")" \
 $server/API/v6/verify \
 | jq
 
@@ -110,9 +80,9 @@ $server/API/v6/verify \
 ```
 
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "retrievalId=$(jq --raw-output </Users/kmm/Dropbox/cw-temp/register.$$.json '.documents[0].retrievalId')&provideVerificationInfos=false${sealFormat}" \
+--data "retrievalId=$(jq --raw-output <~/cw-temp/register.$$.json '.documents[0].retrievalId')&provideVerificationInfos=false${sealFormat}" \
 $server/API/v6/verify \
-| tee /Users/kmm/Dropbox/cw-temp/verify.$$.json \
+| tee ~/cw-temp/verify.$$.json \
 | jq
 ```
 ## Verify Examples
@@ -123,11 +93,11 @@ $server/API/v6/verify \
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
 --data "retrievalDocHash=1113333333333333333333333333333333333333333333333333333333333333&provideVerificationInfos=false${sealFormat}" \
 $server/API/v6/verify \
-| tee /Users/kmm/Dropbox/cw-temp/verify_by_hash.$$.json \
+| tee ~/cw-temp/verify_by_hash.$$.json \
 | jq
 ```
 _______
-### Register And Then Verify
+### Register and then Verify
 Register a hash
 
 ```

@@ -11,6 +11,4 @@ If you do not have an account with Cryptowerk yet, you can sign-up via our [webs
 Go to the ***Account*** section in the App Console, click "Regenerate API Key".
 
 
-```
  ![get api key image](quickstart-img1.png)
-```

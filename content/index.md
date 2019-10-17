@@ -8,7 +8,7 @@ import YoutubeEmbed from "YoutubeEmbed.js";
 <YoutubeEmbed link="https://www.youtube.com/embed/dG5FXKfaOVQ" />
 
 ## Cryptowerk Horizon API
-Cryptowerk Horizon is a cloud-based service that enables the verification of the integrity and authenticity of any data at massive scale. In order to make data tamper-evident, a Seal is created.
+Cryptowerk Horizon (Seal API) is a cloud-based service that enables the verification of the integrity and authenticity of any data at massive scale. In order to make data tamper-evident, a Seal is created.
 
 However, learning new things always takes time and without getting your hands dirty it can be hard to understand the nuances of a new technology.
 
