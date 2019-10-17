@@ -19,7 +19,7 @@ jq is a lightweight and flexible command-line JSON processor. This will make rea
 Enter each of these commands into the terminal to setup your cURL environment to more easily access the API from the command line:
 
 1. Pick a directory that you have read and write access to.
-2. Use your apiKey and apiCred (the keys below will not work)
+2. Use your API Key and apiCred (the keys below will not work)
 
 From Terminal enter each of these commands using the directory that you have created and hit enter.
 
