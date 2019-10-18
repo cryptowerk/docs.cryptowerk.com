@@ -31,7 +31,6 @@ const config = {
 					"/faq",
 					"/support"
 				],
-						],
 		"links": [
 			{ "text": "App Console", "link": "https://developers.cryptowerk.com/platform/portal/index.html"},
 			{"text": "User Guide", "link": "https://developers.cryptowerk.com/platform/permalink/sealapiguide"},
