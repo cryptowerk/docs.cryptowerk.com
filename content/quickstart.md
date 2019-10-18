@@ -17,26 +17,26 @@ Hash  -->  retrieval-ID  -->  Seal
 
 ## Getting Started
 ### API Key and Credentials
-Sign-up or Login
+Sign-up or Login via the [Cryptowerk website](https://cryptowerk.com)
 
-Select the **Account menu** and locate the API Key and Secret Credential. Save these two values with a <span style="font-size:larger;">***space***</span> in between them. You can only view the credentials once.
+Select the **Account menu** and locate the API Key and Secret Credential. Save these two values with a ***space*** in between them. You can only view the credentials once.
 
  ![get api key image](quickstart-img1.png)
 
-The apiKey is visible and the yourAPICredential is secret and may only be accessed once.
+The API Key is visible and can always be looked up in your **Account** info in the **App Console**. Your API Credential is secret and may only be accessed once.
 
 ## Hash The data
-A cryptographic hash is like a fingerprint. It is a mathematical algorithm that takes data of any size turns it into a unique fixed size string of values. Cryptowerk uses these so called hashes to create **seals** for digital assets.
+A cryptographic hash is like a fingerprint. It is a mathematical algorithm that takes data of any size turns it into a unique fixed size string of values. Cryptowerk uses these so called hashes to create **Seals** for digital assets.
 Open a command line terminal
 
 ```
 echo -n "simple text" | shasum -a 256
 ```
-Creates Hash:
+Create a Hash:
 ```
 2609c7c28788898a337c063ff1c3b92275832bddeda014a790d109fad3ba85e2
 ```
-However you're likely going to want to hash a file. Try this:
+You most likely want to hash a document. To hash a document/file try this:
 ```
 openssl dgst -sha256 <filename>
 ```
@@ -48,7 +48,7 @@ curl -sS \
 --data "hashes=2609c7c28788898a337c063ff1c3b92275832bddeda014a790d109fad3ba85e2" \
 https://developers.cryptowerk.com/platform/API/v8/register
 ```
-The retrieval-ID for each hash can be found in the response JSON of a sucessful `/register` call.
+The retrieval-ID for each hash can be found in the response JSON of a successful `/register` call.
 ```
 {
   "maxSupportedAPIVersion":8,
@@ -61,7 +61,7 @@ The retrieval-ID for each hash can be found in the response JSON of a sucessful 
 There are several approaches to retrieve the Seal but here we will focus on the simplest.
 
 ## Polling for Seal
-Call `/verify` and provide the retrievalID(s) then check for the return value.
+Call `/verify` and provide the retrieval-ID(s) then check for the return value.
 
 ```
 curl -sS \
@@ -119,4 +119,4 @@ For each retrieval-ID (i.e. each hash) a Seal is returned in the response JSON o
   "minSupportedAPIVersion": 1
 }
 ```
-Above you will notice this Seal contains one Proof for the Etherium blockchain. You may also notice that not all the requested blockchains have been written to yet. Blockchains often have different heartbeats at which they write and confirm transactions and blocks. Re-Polling the API `/verify` call will return the Seal with all the Proofs that have been confirmed at that time of the API call.
+Above you will notice this Seal contains one Proof for the Ethereum blockchain. You may also notice that not all the requested blockchains have been written to yet. Blockchains often have different heartbeats at which they write and confirm transactions and blocks. Re-Polling the API `/verify` call will return the Seal with all the Proofs that have been confirmed at that time of the API call.
