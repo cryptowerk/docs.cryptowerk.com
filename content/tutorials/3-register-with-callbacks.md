@@ -1,7 +1,7 @@
 ---
 title: "Register with Callbacks"
-metaTitle: "Sealing With Callbacks -Cryptowerk Tutorials"
-metaDescription: "Cryptowerk Sealing With Callbacks - Tutorials"
+metaTitle: "Register with Callback -Cryptowerk Tutorials"
+metaDescription: "Register with Callback - Tutorials"
 ---
 
 This tutorial explains how to register with callbacks and how to receive Seals via callbacks.

@@ -1,7 +1,7 @@
 ---
 title: "Independent Verification"
-metaTitle: "Sealing With Callbacks -Cryptowerk Tutorials"
-metaDescription: "Cryptowerk Sealing With Callbacks - Tutorials"
+metaTitle: "Independent Verification -Cryptowerk Tutorials"
+metaDescription: "Independent Verification - Tutorials"
 ---
 
 ## Can I independently verify Seals without Cryptowerk?
