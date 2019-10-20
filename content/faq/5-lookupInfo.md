@@ -1,7 +1,7 @@
 ---
 title: "LookupInfo"
-metaTitle: "FAQ - Verifying Data Integrity"
-metaDescription: "Cryptowerk FAQ - Verifying Data Integrity"
+metaTitle: "FAQ - LookupInfo"
+metaDescription: "Cryptowerk FAQ - LookupInfo"
 ---
 ## What is a lookupInfo and how is it used?
 Through the ***lookupInfo*** you can provide your own information that later helps you looking up your data where you want to put your Seal. This can be any text string.
