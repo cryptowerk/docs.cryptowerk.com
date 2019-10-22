@@ -21,7 +21,7 @@ Sign-up or Login via the [Cryptowerk website](https://cryptowerk.com)
 
 Select the **Account menu** and locate the API Key and Secret Credential. Save these two values with a ***space*** in between them. You can only view the credentials once.
 
- ![get api key image](quickstart-img1.png)
+ ![get api key image](quickstart-img2.png)
 
 The API Key is visible and can always be looked up in your **Account** info in the **App Console**. Your API Credential is secret and may only be accessed once.
 
