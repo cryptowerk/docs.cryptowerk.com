@@ -1,7 +1,7 @@
 ---
-title: "Verify Data with verifyDocHashes"
-metaTitle: "Verify Data with verifyDocHashes -Cryptowerk Tutorials"
-metaDescription: "Verify Data with verifyDocHashes - Tutorials"
+title: "Verify - with verifyDocHashes"
+metaTitle: "Verify - with verifyDocHashes -Cryptowerk Tutorials"
+metaDescription: "Verify - with verifyDocHashes - Tutorials"
 ---
 
 In this tutorial we will give you a quick example on how to verify data using the second group of operations – verification of issued seal.

@@ -1,7 +1,7 @@
 ---
-title: "Independent Verification"
-metaTitle: "Independent Verification -Cryptowerk Tutorials"
-metaDescription: "Independent Verification - Tutorials"
+title: "Verify - independently verification"
+metaTitle: "Verify - independently verification -Cryptowerk Tutorials"
+metaDescription: "Verify - independently verification - Tutorials"
 ---
 
 ## Can I independently verify Seals without Cryptowerk?
@@ -32,11 +32,15 @@ Technical detail: (a) actually assumes that there is sufficient entropy in the o
 You register the hash in one or multiple blockchains by calling our API
 
 ```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" $server/API/v6/register
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+--data "hashes=2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" \
+$server/API/v6/register
 ```
 You get server, apiKey and apiCred from us. Also, on request you can choose which blockchains you want your document to be registered in. We support several public and private blockchains. You can register many hashes in the same API call. Just separate them by a comma like this:
 ```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333" $server/API/v6/register
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+--data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333" \
+$server/API/v6/register
 ```
 
 Note that you didn't provide us with the actual document, just its hash. So, we don't know it. So, we can't leak it nor can it be stolen from us. It never leaves your computer. No trust into any security measures is required.
@@ -58,7 +62,9 @@ You now have received a retrieval-Id ("ri2...") which you can use in subsequent 
 
 After some time, when the blockchain(s) have accepted your document, you can retrieve the mathematical proof of it having been registered from the API. Say, you wanted to use Ethereum and Bitcoin and after some 30 sec to run this:
 ```
-curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "retrievalId=ri22218341d127a2e12eb4d6bcf17464cd1d8170516d15a1d225db62643f339bdeddd7c69" $server/API/v6/verify
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+--data "retrievalId=ri22218341d127a2e12eb4d6bcf17464cd1d8170516d15a1d225db62643f339bdeddd7c69" \
+$server/API/v6/verify
 ```
 It responds with:
 ```
@@ -165,7 +171,9 @@ It's identical to what we calculated. That proves that at the time of the hash's
 
 7. Now, after some minutes, we ask the API again and check whether it also arrived in Bitcoin, which has a 10 minute heartbeat:
 ```
-  curl -sS --header "X-ApiKey: $apiKey $apiCred" --data "retrievalId=ri22218341d127a2e12eb4d6bcf17464cd1d8170516d15a1d225db62643f339bdeddd7c69" $server/API/v6/verify
+  curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+  --data "retrievalId=ri22218341d127a2e12eb4d6bcf17464cd1d8170516d15a1d225db62643f339bdeddd7c69" \
+  $server/API/v6/verify
 -----
 ```
 ```
@@ -298,13 +306,19 @@ There are two more options you have:
 
 3. Unpack the zip file and the example above can be verified running
 ```    
-   java -cp com.cryptowerk.sw.test.APIClientExample.jar com.cryptowerk.sw.test.SealVerifier 0x2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a @example-seals/faq-example.txt 0x535701c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5
+   java -cp com.cryptowerk.sw.test.APIClientExample.jar \
+   com.cryptowerk.sw.test.SealVerifier \
+   0x2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a \
+   @example-seals/faq-example.txt \
+   0x535701c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5
    ```
  which then confirms:
  ```
    Your document has been successfully verified.
-   Document submitted at=Wed Nov 28 17:31:46 PST 2018
-   Registered in blockchain Ethereum.4 using TxId or Id 0xcb47fc2b7167bf76cb503c14893cff30a1bff5917604c65209cceb45816898e6 at 2018-11-28 17:32:07 PST
+   Document submitted at=Wed Nov 28 17:31:46 PST 2018 \
+   Registered in blockchain Ethereum.4 using TxId or Id \
+   0xcb47fc2b7167bf76cb503c14893cff30a1bff5917604c65209cceb45816898e6 \
+   at 2018-11-28 17:32:07 PST
    ```
 
 In summary, you just made that crucial step that permits you - when it comes to digital data - to replace trust.
