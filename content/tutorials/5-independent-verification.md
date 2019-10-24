@@ -60,7 +60,7 @@ The API responds:
 ```
 You now have received a retrieval-Id ("ri2...") which you can use in subsequent API calls. If you submitted multiple hashes, you get one retrievalId per hash.
 
-After some time, when the blockchain(s) have accepted your document, you can retrieve the mathematical proof of it having been registered from the API. Say, you wanted to use Ethereum and Bitcoin and after some 30 sec to run this:
+After some time, when the blockchain(s) have accepted your document, you can retrieve the mathematical proof of it having been registered from the API. Say, you wanted to use Ethereum and Bitcoin and after approx. 30 sec to run this:
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
 --data "retrievalId=ri22218341d127a2e12eb4d6bcf17464cd1d8170516d15a1d225db62643f339bdeddd7c69" \
@@ -146,16 +146,26 @@ which returns
 2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a
 ```
 That's the same number as in documents.seals[0].operations["opcode": "DOC_SHA256"]. So far ok. But that's not connected to the blockchain yet.
+
 4. To verify the unbreakable link from your document and its hash to the blockchain you follow a path of hash operations, as outlined in the seal:
 You prepend '5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c' and hash again, i.e.
-echo
-``` "5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" | xxd -p -r | shasum -a 256
-  ```
+
+```
+echo "5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c2c6424d8c837e1ea79a68a2f36eca526192ebd9d9cabe25ee839b67956ff960a" | xxd -p -r | shasum -a 256
+```
+
   (Note: xxd turns the hexadecimal text into actual bytes.)
   yields 9613cbf8f7c8e6ad01ec02ea5b0d8c44f059e559dfe144df6e66ad611063e073, to which you append bbe5b9c5d7dd278e842a45ba7f34bd1ccc41e5bd353665e2686bcd13ade8c1aa and hash:
   ```
   echo "9613cbf8f7c8e6ad01ec02ea5b0d8c44f059e559dfe144df6e66ad611063e073bbe5b9c5d7dd278e842a45ba7f34bd1ccc41e5bd353665e2686bcd13ade8c1aa" | xxd -p -r | shasum -a 256
-  returns c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5. Which also is noted in documents.seals[0].operations["opcode": "ANCHOR_SHA256"]
+  ```
+  returns
+  ```
+  c323a6ef1e835dc088e62e7582bbb75dcb0c3ef8c9ebe764c4e691e910e561d5
+  ```
+  Which also is noted in
+  ```
+  documents.seals[0].operations["opcode": "ANCHOR_SHA256"]
   ```
   Again, ok and nice, but no proof yet.
 
