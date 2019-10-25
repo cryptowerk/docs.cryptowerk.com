@@ -5,7 +5,7 @@ const config = {
 		"gaTrackingId": "UA-104006776-1"
 	},
 	"header": {
-		"logo": "https://cryptowerk.com",
+		"logo": "https://developers.cryptowerk.com/platform/image/portal/Cryptowerk.png",
 		"logoLink": "https://cryptowerk.com",
 		"title": "Docs",
 		"githubUrl": "https://github.com/cryptowerk/docs.cryptowerk.com",
@@ -41,7 +41,7 @@ const config = {
 	"siteMetadata": {
 		"title": "Developer Knowledge Base | Cryptowerk",
 		"description": "Documentation built with mdx and Gatsby. Powering docs.cryptowerk.com ",
-		"ogImage": "https://cryptowerk.com",
+		"ogImage": "https://developers.cryptowerk.com/platform/image/portal/Cryptowerk.png",
 		"docsLocation": "https://github.com/cryptowerk/docs.cryptowerk.com/tree/master/content",
 		"favicon": "https://gn680kq70q1w32f915vk8a75-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/cryptowerk-favicon-1.png"
 	},
