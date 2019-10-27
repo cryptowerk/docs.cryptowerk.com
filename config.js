@@ -6,7 +6,7 @@ const config = {
 	},
 	"header": {
 		"logo": "https://developers.cryptowerk.com/platform/image/portal/Cryptowerk.png",
-		"logoLink": "https://developers.cryptowerk.com/platform/portal/index.html",
+		"logoLink": "https://cryptowerk.com",
 		"title": "Docs",
 		"githubUrl": "https://github.com/cryptowerk/docs.cryptowerk.com",
 		"helpUrl": "https://join.slack.com/t/cryptowerk-community/shared_invite/enQtNTM5MzE4MDE0ODU0LWU4ZmFkYzAwOTc0ODk0NDExYjM2NjAzNTFmZTAwNDliMGFkYmUyN2UzNjVjN2M2MjAzZmY0OTNkMTBhMGY3M2E",
