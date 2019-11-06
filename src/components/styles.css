@@ -358,8 +358,8 @@ pre {
   padding-left: 15px;
 }
 .sideBarUL .item>a:hover {
-  background-color: #d96d00;
-  color: #fff !important;
+  /* background-color: #d96d00; */
+  color: #d96d00 !important;
 }
 .showFrontLine .item >a:hover {
   background-color: #d96d00;
