@@ -31,6 +31,9 @@ const config = {
 					"/faq",
 					"/support"
 				],
+		"collapsedNav": [
+      "/tutorials"
+    	],
 		"links": [
 			{"text": "User Guide", "link": "https://developers.cryptowerk.com/platform/permalink/sealapiguide"},
 		  { "text": "Git Repository", "link": "https://github.com/cryptowerk"},
