@@ -38,7 +38,7 @@ Yes. Only the party who has sent hashes to the Cryptowerk Seal API will receive 
 
 ## What timestamps does the Cryptowerk Seal include?
 The Cryptowerk Seal includes two timestamps. The first timestamp received in the seal is the time the hash was submitted to the Cryptowerk Horizon API. It is returned as:
-```"submittedAT": 1543455106015,```
+```"submittedAt": 1543455106015,```
 
 The second timestamp received, is a timestamp received per each proof in the seal. This timestamp includes the time the received hash is forwarded from Cryptowerk to the chosen source of truth, e.g. Bitcoin and Etherum Blockchain. It is returned in the proof as:
 
