@@ -34,7 +34,7 @@ Because of our unique and patented sealing algorithms, we’re currently able to
 Cryptowerk Horizon can process up to one million hashes per second. Any excess transactions are queued and addressed as quickly as possible.
 
 ## Are my Seals private?
-Yes. Only the party who has sent hashes to the Cryptowerk Seal API will receive a unique Seal for each hash back. Cryptowerk will not share Seals with any third party, unless this is requested by the customers.
+Yes. Only the party who has sent hashes to the Cryptowerk Seal API will receive a unique Seal for each hash back. Cryptowerk will not share Seals with any third party, unless this is requested by the customers.To request add publiclyRetrievable=true to the body of your register call.
 
 ## What timestamps does the Cryptowerk Seal include?
 The Cryptowerk Seal includes two timestamps. The first timestamp received in the seal is the time the hash was submitted to the Cryptowerk Horizon API. It is returned as:
