@@ -4,11 +4,11 @@ metaTitle: "Retrieve Seal - using Verify Call -Cryptowerk Tutorials"
 metaDescription: "Retrieve Seal - using Verify Call - Tutorials"
 ---
 
-The ***verify*** call can be split into two verification methods. To be specific, it is used to 1) check the registration status of a previously registered hash and therewith retrieve the Cryptowerk Seal and 2) verify original data using the Cryptowerk Seal. The second method will be explained in the tutorial "Verify - with Seal". In this tutorial we will explain how to use the ***verify*** call with the retrieval ID.
+The ***verify*** call can be split into two verification methods. To be specific, it is used to 1) check the registration status of a previously registered hash and therewith retrieve the Cryptowerk Seal and 2) verify original data using the Cryptowerk Seal. The second method will be explained in the tutorial ["Verify - with Seal"](https://docs.cryptowerk.com/tutorials/4-verify-with-Seal). In this tutorial we will explain how to use the ***verify*** call with the retrieval ID.
 
 The use of the retrieval ID in the ***verify*** call is mostly used for demo purposes or to retrieve the Seal. The retrieval ID can be seen as a ticket number. With this ticket number you can check if the sent hash is already registered in the blockchain.
 
-If the hash is already registered in the blockchain, you will receive the Cryptowerk Seal in return (assumed no callbacks are implemented). Let's look into an example how to verify a previously registered hash.
+If the hash is already registered in the blockchain, you will receive the Cryptowerk Seal in return. Let's look into an example how to verify a previously registered hash.
 We assume you have registered the hash into one or two blockchains as follows:
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
@@ -114,6 +114,6 @@ So now let's look into a case where the Seal is not complete yet. You would rece
 }
 ```
 The Cryptowerk Seal is complete once the underlying blockchain has accepted the transaction. The timing depends on the heartbeat of the blockchain. The Bitcoin blokchain has a heartbeat of 10 minutes, where the Ethereum blockchain has a heartbeat of 15 seconds. That said, the Seal can be retrieved from the Ethereum blockchain after 15 seconds and from the Bitcoin blockchain after 10 minutes.
-In the first case where the hash was successfully registered into the blockchain, you have retrieved the Cryptowerk Seal through the retrieval ID. To automate this process, you can implement the callback function which will deliver the Cryptowerk Seal via e-mail, webhook or MQTT. Learn how to implement callbacks in the "Register - with Callbacks" tutorial.
+In the first case where the hash was successfully registered into the blockchain, you have retrieved the Cryptowerk Seal through the retrieval ID. To automate this process, you can implement the callback function which will deliver the Cryptowerk Seal via e-mail, webhook or MQTT. Learn how to implement callbacks in the ["Register - with Callbacks"](https://docs.cryptowerk.com/tutorials/3-register-with-callbacks) tutorial.
 
 
