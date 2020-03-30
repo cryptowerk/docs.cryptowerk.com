@@ -1,11 +1,13 @@
 ---
-title: "Verify - with verifyDocHashes"
-metaTitle: "Verify - with verifyDocHashes -Cryptowerk Tutorials"
-metaDescription: "Verify - with verifyDocHashes - Tutorials"
+title: "Verify - with Seal"
+metaTitle: "Verify - with Seal -Cryptowerk Tutorials"
+metaDescription: "Verify - with Seal - Tutorials"
 ---
 
-In this tutorial we will give you a quick example on how to verify data using the second group of operations – verification of issued seal.
+In this tutorial we will give you a quick example on how to verify data using the Cryptowerk Seal, described as the second group of operations in the Cryptowerk Horizon API as "(2) verify a previously issued seal".
 
+You will need the hash of the data you want to verify plus the Seal.
+The paramater verifyDocHashes expects the hash.
 The parameter ***seals*** expects a JSON array, i.e. ‘[{...}]’ not just ‘{…}’. Please use the two following examples as a reference:
 
 
