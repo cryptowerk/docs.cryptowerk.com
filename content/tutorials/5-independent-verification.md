@@ -1,7 +1,7 @@
 ---
-title: "Verify - independent verification"
-metaTitle: "Verify - independent verification - Cryptowerk Tutorials"
-metaDescription: "Verify - independent verification - Tutorials"
+title: "Verify - Independent Verification"
+metaTitle: "Verify - Independent Verification - Cryptowerk Tutorials"
+metaDescription: "Verify - Independent Verification - Tutorials"
 ---
 
 ## Can I independently verify Seals without Cryptowerk?
