@@ -1,6 +1,6 @@
 ---
-title: "Verify - independently verification"
-metaTitle: "Verify - independently verification -Cryptowerk Tutorials"
+title: "Verify - independent verification"
+metaTitle: "Verify - independent verification - Cryptowerk Tutorials"
 metaDescription: "Verify - independently verification - Tutorials"
 ---
 
