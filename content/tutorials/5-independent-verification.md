@@ -332,3 +332,41 @@ There are two more options you have:
    ```
 
 In summary, you just made that crucial step that permits you - when it comes to digital data - to replace trust.
+
+The Cryptowerk Horizon API provides a code generator to support the manual verification process. Therefore, you would need to set the *provideVerificationInfos* flag to *true*. 
+The code example looks as follows:
+```
+curl -sS --header "X-ApiKey: $apiKey $apiCred" \
+curl -X POST "https://developers.cryptowerk.com/platform/API/v8/verify?retrievalId=ri3165047ca690fe40fceb207e77205164757fb0e9abeb24ae2ff2ea4183a2cb32f&provideVerificationInfos=true&provideInstructions=false" -H "accept: application/json" -H 
+```
+
+When setting the flag to receive verification infos, the response body will give back a detailed *confirmationText* with istructions as well as the code generator to manually verify your data and the Seal.
+
+```
+"confirmationText": "Dear Cryptowerk user,\n\nproof of the document that you uploaded at 2020-09-14 21:27:26 UTC\nhas been successfully registered in the worldwide public ledger, the blockchain.\nYou are now all set.\n\nIn particular, you now are in a position to be able to prove at any time to anyone\nthat you submitted your document and that it remained unaltered by using our verification service\n for 2020-09-14 21:27:26 UTC at https://developers.cryptowerk.com/platform/permalink/sealapiverify?retrievalId=ri3165047ca690fe40fceb207e77205164757fb0e9abeb24ae2ff2ea4183a2cb32f\n\nThank you for using our service,\nYour Cryptowerk Team\n\n\nP.S.: Alternatively, in case that you are legally or technologically interested,\nyou could perform the verification all by yourself, even without using our service.\nHere are the instructions :\nUse SHA-256 to calculate a hash of your document, for instance by running\n  openssl dgst -sha256 -hex your_document\nThe SHA-256 hash of the submitted document was 1111111111111111111111111111111111111111111111111111111111111111.\nThen take da84a30507b5a4ab52adc5160bd559f6166cd1759fb891e220ffbc3d080ac17f and append the previous hash 1111111111111111111111111111111111111111111111111111111111111111 to it.\nThen calculate SHA-256 of the concatenation of the two, which is 107647717aac9e88044fd575f4bc7fa6567018508ffa029bc7064a3189b99a02 .\nThen take that hash 107647717aac9e88044fd575f4bc7fa6567018508ffa029bc7064a3189b99a02 and append 87f410f2f152cab3aaa1251fc6c7b2a8b0350c5c25d42085ad2370a1b0395c6d to it.\nThen calculate SHA-256 of the concatenation of the two, which is a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7 .\n\nIf you prefer code, here's Javascript that you can run in your browser:\n<html>\n<head><meta content=\"text/html;charset=utf-8\" http-equiv=\"Content-Type\"></head><body>\n<script type=\"text/javascript\" src=\"https://cdn.jsdelivr.net/npm/node-forge@0.10.0/dist/forge.min.js\"></script>\n<script type=\"text/javascript\">\n  function fromHex(hex) { return forge.util.binary.hex.decode(hex); }\n  function hash(hex) {\n    md.start();\n    md.update(new forge.util.ByteBuffer(fromHex(hex)).getBytes());\n    return md.digest().toHex();\n  }\n  let md=forge.md.sha256.create();\n  var accu='1111111111111111111111111111111111111111111111111111111111111111';\n  accu=hash('da84a30507b5a4ab52adc5160bd559f6166cd1759fb891e220ffbc3d080ac17f'+accu);\n  accu=hash(accu+'87f410f2f152cab3aaa1251fc6c7b2a8b0350c5c25d42085ad2370a1b0395c6d');\n  var anchorHashLabel='535701';\n  alert(\"If you can see the value \"+accu+\" in the blockchain,\\npossibly prefixed by \"+anchorHashLabel+\",\\nthen you just successfully proved that the document existed at that time and has not been tampered with.\");\n</script>\n</body>\n</html>\n\nThis last hash is the value which you will find publicly available in the blockchain named 'Ethereum.4'\nin transaction id=0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108 having been inserted there at 2020-09-14 21:28:02 UTC\nOr you can take a look here:\n  http://rinkeby.etherscan.io/tx/0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108\nin entry \"Input Data\" at bytes four and following.\nThe SHA-256 hash of the submitted document was 1111111111111111111111111111111111111111111111111111111111111111.\nThen take that hash 1111111111111111111111111111111111111111111111111111111111111111 and append 2222222222222222222222222222222222222222222222222222222222222222 to it.\nThen calculate SHA-256 of the concatenation of the two, which is 5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c .\nThen take that hash 5189c77d29fe5d546a045ec46986852785fea5c13ac7da9c115ff5fb6edf817c and append 7c26fdd1387b71ca2b32c7778087933352bceddf1b767f4f9230aa543df6153a to it.\nThen calculate SHA-256 of the concatenation of the two, which is 80880fe266d80af7036faecddffda7cad15f6692f51cdfd835909647bdb01522 .\nThen take 619d37789f881b22e8c0cdcd8566eb0b16678f4e1d50b9e8f812c78b87cac3ac and append the previous hash 80880fe266d80af7036faecddffda7cad15f6692f51cdfd835909647bdb01522 to it.\nThen calculate SHA-256 of the concatenation of the two, which is 21e95699e9c65e521c16d0c4879b05fe79d186789dce4e96220e6f14c02a452c .\n\nIf you prefer code, here's Javascript that you can run in your browser:\n<html>\n<head><meta content=\"text/html;charset=utf-8\" http-equiv=\"Content-Type\"></head><body>\n<script type=\"text/javascript\" src=\"https://cdn.jsdelivr.net/npm/node-forge@0.10.0/dist/forge.min.js\"></script>\n<script type=\"text/javascript\">\n  function fromHex(hex) { return forge.util.binary.hex.decode(hex); }\n  function hash(hex) {\n    md.start();\n    md.update(new forge.util.ByteBuffer(fromHex(hex)).getBytes());\n    return md.digest().toHex();\n  }\n  let md=forge.md.sha256.create();\n  var accu='1111111111111111111111111111111111111111111111111111111111111111';\n  accu=hash(accu+'2222222222222222222222222222222222222222222222222222222222222222');\n  accu=hash(accu+'7c26fdd1387b71ca2b32c7778087933352bceddf1b767f4f9230aa543df6153a');\n  accu=hash('619d37789f881b22e8c0cdcd8566eb0b16678f4e1d50b9e8f812c78b87cac3ac'+accu);\n  var anchorHashLabel='535701';\n  alert(\"If you can see the value \"+accu+\" in the blockchain,\\npossibly prefixed by \"+anchorHashLabel+\",\\nthen you just successfully proved that the document existed at that time and has not been tampered with.\");\n</script>\n</body>\n</html>\n\n\n",
+      "verificationURL": "https://developers.cryptowerk.com/platform/permalink/sealapiverify?retrievalId=ri3165047ca690fe40fceb207e77205164757fb0e9abeb24ae2ff2ea4183a2cb32f",
+      "submittedAt": 1600118846324,
+      "hasBeenInsertedIntoAtLeastOneBlockchain": true,
+      "blockchainRegistrations": [
+        {
+          "blockChainId": "0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108",
+          "insertedIntoBlockchainAt": 1600118882447,
+          "blockChainDesc": {
+            "instanceName": "4",
+            "generalName": "Ethereum"
+          },
+          "bcExplorerUrls": [
+            "http://rinkeby.etherscan.io/tx/0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108"
+          ],
+          "status": {
+            "anchorHash": "a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7"
+          }
+        }
+      ],
+      "hasBeenInsertedIntoAllRequestedBlockchains": false
+    }
+  ],
+  "minSupportedAPIVersion": 1
+}
+```
+
