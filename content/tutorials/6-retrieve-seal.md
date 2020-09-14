@@ -37,7 +37,7 @@ curl -sS --header "X-ApiKey: $apiKey $apiCred" \
 
 ```
 
-In the following response you will see that the hash was successfully registered into the Ethereum Blockchain. Therefore, you receive the complete Seal. You retrieve the Seal with the retrieval ID:
+In the following response you will see that the hash was successfully registered into the Ethereum and Bitcoin test blockchain. Therefore, you receive the complete Seal. You retrieve the Seal with the retrieval ID:
 
 ```
 {
@@ -47,26 +47,66 @@ In the following response you will see that the hash was successfully registered
       "retrievalId": "ri3218682a19b10803470ca7cea14dc383901a67004080d58de15b004e9d7dd9069",
       "seal": {
         "documentInfo": {
-          "submittedAt": 1585340287635
+          "submittedAt": 1600118846324
         },
         "proofs": [
           {
             "bundleMethod": "BALANCED_MERKLE_TREE",
             "operations": [
               {
-                "blockChainId": "0x54a3ac9dcab7b9a6bd540cf52be8186765d4bbf2ec6500bc61720dd874685483",
+                "blockChainId": "0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108",
                 "instanceName": "4",
-                "insertedIntoBlockchainAt": 1585340341765,
+                "insertedIntoBlockchainAt": 1600118882447,
                 "opcode": "BLOCKCHAIN",
                 "blockchainGeneralName": "Ethereum"
               },
               {
-                "docHash": "d0df495c63ac4d560ab12ce5fa5d78c8e2933905140d3f487c6bb110fb928de0",
+                "docHash": "1111111111111111111111111111111111111111111111111111111111111111",
                 "opcode": "DOC_SHA256"
               },
               {
+                "opcode": "PREPEND_THEN_SHA256",
+                "hash": "da84a30507b5a4ab52adc5160bd559f6166cd1759fb891e220ffbc3d080ac17f"
+              },
+              {
+                "opcode": "APPEND_THEN_SHA256",
+                "hash": "87f410f2f152cab3aaa1251fc6c7b2a8b0350c5c25d42085ad2370a1b0395c6d"
+              },
+              {
                 "opcode": "ANCHOR_SHA256",
-                "hash": "d0df495c63ac4d560ab12ce5fa5d78c8e2933905140d3f487c6bb110fb928de0"
+                "hash": "a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7"
+              }
+            ]
+          },
+          {
+            "bundleMethod": "BALANCED_MERKLE_TREE",
+            "operations": [
+              {
+                "blockChainId": "efbef23bb924d0b465b29eb8706ef39979b4ad8bf180fe26f15a4ee1ebf9b1e3",
+                "instanceName": "test",
+                "insertedIntoBlockchainAt": 1600119061320,
+                "opcode": "BLOCKCHAIN",
+                "blockchainGeneralName": "Bitcoin"
+              },
+              {
+                "docHash": "1111111111111111111111111111111111111111111111111111111111111111",
+                "opcode": "DOC_SHA256"
+              },
+              {
+                "opcode": "APPEND_THEN_SHA256",
+                "hash": "2222222222222222222222222222222222222222222222222222222222222222"
+              },
+              {
+                "opcode": "APPEND_THEN_SHA256",
+                "hash": "68fbc715094d3d1f70130484033534b9f648d849fa3496176b1341e3e78c45df"
+              },
+              {
+                "opcode": "PREPEND_THEN_SHA256",
+                "hash": "619d37789f881b22e8c0cdcd8566eb0b16678f4e1d50b9e8f812c78b87cac3ac"
+              },
+              {
+                "opcode": "ANCHOR_SHA256",
+                "hash": "0a5f88072e952879383ff1a7bd342ccd6d938ff1709febb1a5717c029a19474b"
               }
             ]
           }
@@ -74,18 +114,41 @@ In the following response you will see that the hash was successfully registered
         "version": 8,
         "isComplete": true
       },
-      "submittedAt": 1585340287635,
+      "submittedAt": 1600118846324,
       "hasBeenInsertedIntoAtLeastOneBlockchain": true,
       "blockchainRegistrations": [
         {
-          "blockChainId": "0x54a3ac9dcab7b9a6bd540cf52be8186765d4bbf2ec6500bc61720dd874685483",
-          "insertedIntoBlockchainAt": 1585340341765,
+          "blockChainId": "0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108",
+          "insertedIntoBlockchainAt": 1600118882447,
           "blockChainDesc": {
             "instanceName": "4",
             "generalName": "Ethereum"
           },
+          "bcExplorerUrls": [
+            "http://rinkeby.etherscan.io/tx/0xb14f989ba3dde08f369f745fb60c8d85cea3e057456656e3e2c557abc0fea108"
+          ],
           "status": {
-            "anchorHash": "d0df495c63ac4d560ab12ce5fa5d78c8e2933905140d3f487c6bb110fb928de0"
+            "atLeastThisNumberOfConfirmations": 340,
+            "isConsideredFinal": true,
+            "anchorHash": "535701a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7"
+          }
+        },
+        {
+          "blockChainId": "efbef23bb924d0b465b29eb8706ef39979b4ad8bf180fe26f15a4ee1ebf9b1e3",
+          "insertedIntoBlockchainAt": 1600119061320,
+          "blockChainDesc": {
+            "instanceName": "test",
+            "generalName": "Bitcoin"
+          },
+          "bcExplorerUrls": [
+            "https://www.blockchain.com/btc-testnet/tx/efbef23bb924d0b465b29eb8706ef39979b4ad8bf180fe26f15a4ee1ebf9b1e3",
+            "https://live.blockcypher.com/btc-testnet/tx/efbef23bb924d0b465b29eb8706ef39979b4ad8bf180fe26f15a4ee1ebf9b1e3",
+            "https://blockstream.info/testnet/tx/efbef23bb924d0b465b29eb8706ef39979b4ad8bf180fe26f15a4ee1ebf9b1e3"
+          ],
+          "status": {
+            "atLeastThisNumberOfConfirmations": 7,
+            "isConsideredFinal": true,
+            "anchorHash": "5357010a5f88072e952879383ff1a7bd342ccd6d938ff1709febb1a5717c029a19474b"
           }
         }
       ],
@@ -113,7 +176,9 @@ So now let's look into a case where the Seal is not complete yet. You would rece
   "minSupportedAPIVersion": 1
 }
 ```
-The Cryptowerk Seal is complete once the underlying blockchain has accepted the transaction and the transaction is stable.
+
+All instructions displayed below *blockchainRegistrations* provide information on how the Cryptowerk Seal could be found in a third party blockchain explorer *bcExplorerUrls*, by how many blocks the transaction is confirmed *"atLeastThisNumberOfConfirmations": 340*, if the Seal is considered final *"isConsideredFinal": true*, and under which *"anchorHash": "535701a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7"* you could find the transaction in the respective blockchain. 
+
 In the first case where the hash was successfully registered into the blockchain, you have retrieved the Cryptowerk Seal through the retrieval ID. To automate this process, you can implement the callback function which will deliver the Cryptowerk Seal via e-mail, webhook or MQTT. Learn how to implement callbacks in the ["Register - with Callbacks"](https://docs.cryptowerk.com/tutorials/3-register-with-callbacks) tutorial.
 
 
