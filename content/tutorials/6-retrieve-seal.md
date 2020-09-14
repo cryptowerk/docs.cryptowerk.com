@@ -160,7 +160,10 @@ In the following response you will see that the hash was successfully registered
 
 ```
 
+All instructions displayed below *blockchainRegistrations* provide information on how the Cryptowerk Seal could be found in a third party blockchain explorer *bcExplorerUrls*, by how many blocks the transaction is confirmed *"atLeastThisNumberOfConfirmations": 340*, if the Seal is considered final *"isConsideredFinal": true*, and under which *"anchorHash": "535701a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7"* you could find the transaction in the respective blockchain. 
+
 So now let's look into a case where the Seal is not complete yet. You would receive the following repsonse:
+
 ```
 {
   "maxSupportedAPIVersion": 8,
@@ -176,9 +179,6 @@ So now let's look into a case where the Seal is not complete yet. You would rece
   "minSupportedAPIVersion": 1
 }
 ```
-
-All instructions displayed below *blockchainRegistrations* provide information on how the Cryptowerk Seal could be found in a third party blockchain explorer *bcExplorerUrls*, by how many blocks the transaction is confirmed *"atLeastThisNumberOfConfirmations": 340*, if the Seal is considered final *"isConsideredFinal": true*, and under which *"anchorHash": "535701a979848a0ef458f410912a8701e87c4fbd94e96f3f5a94ef0f0333fc135eaee7"* you could find the transaction in the respective blockchain. 
-
 In the first case where the hash was successfully registered into the blockchain, you have retrieved the Cryptowerk Seal through the retrieval ID. To automate this process, you can implement the callback function which will deliver the Cryptowerk Seal via e-mail, webhook or MQTT. Learn how to implement callbacks in the ["Register - with Callbacks"](https://docs.cryptowerk.com/tutorials/3-register-with-callbacks) tutorial.
 
 
