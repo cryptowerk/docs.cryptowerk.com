@@ -113,7 +113,8 @@ So now let's look into a case where the Seal is not complete yet. You would rece
   "minSupportedAPIVersion": 1
 }
 ```
-The Cryptowerk Seal is complete once the underlying blockchain has accepted the transaction. The timing depends on the heartbeat of the blockchain. The Bitcoin blokchain has a heartbeat of 10 minutes, where the Ethereum blockchain has a heartbeat of 15 seconds. That said, the Seal can be retrieved from the Ethereum blockchain after 15 seconds and from the Bitcoin blockchain after 10 minutes.
+The Cryptowerk Seal is complete once the underlying blockchain has accepted the transaction and the transaction is stable.
 In the first case where the hash was successfully registered into the blockchain, you have retrieved the Cryptowerk Seal through the retrieval ID. To automate this process, you can implement the callback function which will deliver the Cryptowerk Seal via e-mail, webhook or MQTT. Learn how to implement callbacks in the ["Register - with Callbacks"](https://docs.cryptowerk.com/tutorials/3-register-with-callbacks) tutorial.
+
 
 
