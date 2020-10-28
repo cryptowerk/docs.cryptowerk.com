@@ -1,15 +1,201 @@
 ---
-title: "Verify - with Seal"
-metaTitle: "Verify - with Seal -Cryptowerk Tutorials"
-metaDescription: "Verify - with Seal - Tutorials"
+title: "Verify a Seal"
+metaTitle: "Verify data with a Cryptowerk Seal -Cryptowerk Tutorials"
+metaDescription: "Verify data with a Cryptowerk Seal - Tutorials"
 ---
 
-In this tutorial we will give you a quick example on how to verify data using the Cryptowerk Seal, described as the second group of operations in the Cryptowerk Horizon API as "(2) verify a previously issued seal".
+In this tutorial we will give you a quick example on how to verify data using a Cryptowerk Seal. To verify data via the Cryptowerk Horizon API you can simply use the `/verifyseal` call.
 
 You will need the hash of the data you want to verify plus the Seal.
 The paramater verifyDocHashes expects the hash.
-The parameter ***seals*** expects a JSON array, i.e. ‘[{...}]’ not just ‘{…}’. Please use the two following examples as a reference:
+The parameter ***seals*** expects a JSON array, i.e. ‘[{...}]’ not just ‘{…}’. To start the verification process you will need the previously issued Seal, which looks as follow:
 
+```
+"seal": {
+        "documentInfo": {
+          "submittedAt": 1603323008105
+        },
+        "proofs": [
+          {
+            "bundleMethod": "BALANCED_MERKLE_TREE",
+            "operations": [
+              {
+                "blockChainId": "0xfcad1fa0c355545facec93c9767026fdd2f58eef04f6448a190def986d0d54e9",
+                "instanceName": "4",
+                "insertedIntoBlockchainAt": 1603323061947,
+                "opcode": "BLOCKCHAIN",
+                "blockchainGeneralName": "Ethereum"
+              },
+              {
+                "docHash": "1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014",
+                "opcode": "DOC_SHA256"
+              },
+              {
+                "opcode": "PREPEND_THEN_SHA256",
+                "hash": "e05032bfd7311200cc18a467498409fc42a1080204d3363a8102c74a1b1a5462"
+              },
+              {
+                "opcode": "ANCHOR_SHA256",
+                "hash": "c73ffc4707f9c578d5b6ce9310a562acf5294509158702967d76549f608c721e"
+              }
+            ]
+          },
+          {
+            "bundleMethod": "BALANCED_MERKLE_TREE",
+            "operations": [
+              {
+                "blockChainId": "2c6bf1766cc19ac3c2760fe54a512016632a52b705bacaefdfb523a09502600b",
+                "instanceName": "test",
+                "insertedIntoBlockchainAt": 1603323481889,
+                "opcode": "BLOCKCHAIN",
+                "blockchainGeneralName": "Bitcoin"
+              },
+              {
+                "docHash": "1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014",
+                "opcode": "DOC_SHA256"
+              },
+              {
+                "opcode": "APPEND_THEN_SHA256",
+                "hash": "2221111111111111111111111111111111111111111111111111111111111111"
+              },
+              {
+                "opcode": "APPEND_THEN_SHA256",
+                "hash": "c2c4078885cdd970b3b04e665018d3ed066484f45c779f008f2b962c0b3d38d7"
+              },
+              {
+                "opcode": "PREPEND_THEN_SHA256",
+                "hash": "7cd4000d4185ec2cd45308e79ef00bd4a5d6ebdec7f5e68e31656bdb38e3b120"
+              },
+              {
+                "opcode": "APPEND_THEN_SHA256",
+                "hash": "ed348f0bf378f938b46c583369b1d3f77cb296fceb39993454b4b8ff5b8320b3"
+              },
+              {
+                "opcode": "ANCHOR_SHA256",
+                "hash": "50ee00328ea293f7dd679949eea694a2f30efd67d82fe102ab5b13960a98b25c"
+              }
+            ]
+          }
+        ],
+        "version": 8,
+        "isComplete": true
+      }
+```
+
+... as well as the hash od the data you would like to verify. In this case the data hash is ***1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014***.
+
+The command to call the `/verifyseal` call looks like this:
+```
+verifyDocHashes=1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014&seals={"documentInfo":{"submittedAt":1603323008105},"proofs":[{"bundleMethod":"BALANCED_MERKLE_TREE","operations":[{"blockChainId":"0xfcad1fa0c355545facec93c9767026fdd2f58eef04f6448a190def986d0d54e9","instanceName":"4","insertedIntoBlockchainAt":1603323061947,"opcode":"BLOCKCHAIN","blockchainGeneralName":"Ethereum"},{"docHash":"1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014","opcode":"DOC_SHA256"},{"opcode":"PREPEND_THEN_SHA256","hash":"e05032bfd7311200cc18a467498409fc42a1080204d3363a8102c74a1b1a5462"},{"opcode":"ANCHOR_SHA256","hash":"c73ffc4707f9c578d5b6ce9310a562acf5294509158702967d76549f608c721e"}]},{"bundleMethod":"BALANCED_MERKLE_TREE","operations":[{"blockChainId":"2c6bf1766cc19ac3c2760fe54a512016632a52b705bacaefdfb523a09502600b","instanceName":"test","insertedIntoBlockchainAt":1603323481889,"opcode":"BLOCKCHAIN","blockchainGeneralName":"Bitcoin"},{"docHash":"1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014","opcode":"DOC_SHA256"},{"opcode":"APPEND_THEN_SHA256","hash":"2221111111111111111111111111111111111111111111111111111111111111"},{"opcode":"APPEND_THEN_SHA256","hash":"c2c4078885cdd970b3b04e665018d3ed066484f45c779f008f2b962c0b3d38d7"},{"opcode":"PREPEND_THEN_SHA256","hash":"7cd4000d4185ec2cd45308e79ef00bd4a5d6ebdec7f5e68e31656bdb38e3b120"},{"opcode":"APPEND_THEN_SHA256","hash":"ed348f0bf378f938b46c583369b1d3f77cb296fceb39993454b4b8ff5b8320b3"},{"opcode":"ANCHOR_SHA256","hash":"50ee00328ea293f7dd679949eea694a2f30efd67d82fe102ab5b13960a98b25c"}]}],"version":8,"isComplete":true}' $server/API/v8/verifyseal
+```
+
+If the data verification is successful, the API response will look like this:
+
+```
+{
+  "maxSupportedAPIVersion": 8,
+  "minSupportedAPIVersion": 1,
+  "verificationResults": [
+    {
+      "proofs": [
+        {
+          "sources": [
+            {
+              "name": "AnchorInStamp"
+            },
+            {
+              "blockchain": {
+                "instanceName": "4",
+                "txId": "0xfcad1fa0c355545facec93c9767026fdd2f58eef04f6448a190def986d0d54e9",
+                "generalName": "Ethereum"
+              },
+              "name": "InMemoryBCLookupService"
+            }
+          ],
+          "verified": true,
+          "additionalInfo": "Registered in blockchain Ethereum.4 using TxId or Id 0xfcad1fa0c355545facec93c9767026fdd2f58eef04f6448a190def986d0d54e9 at 2020-10-21 23:31:01 UTC\n"
+        },
+        {
+          "sources": [
+            {
+              "name": "AnchorInStamp"
+            },
+            {
+              "blockchain": {
+                "instanceName": "test",
+                "txId": "2c6bf1766cc19ac3c2760fe54a512016632a52b705bacaefdfb523a09502600b",
+                "generalName": "Bitcoin"
+              },
+              "name": "InMemoryBCLookupService"
+            }
+          ],
+          "verified": true,
+          "additionalInfo": "Registered in blockchain Bitcoin.test using TxId or Id 2c6bf1766cc19ac3c2760fe54a512016632a52b705bacaefdfb523a09502600b at 2020-10-21 23:38:01 UTC\n"
+        }
+      ],
+      "verified": true,
+      "isComplete": true
+    }
+  ]
+}
+```
+
+## Manipulated verification
+
+In case the data hash was manipulated, the API provides following response:
+
+```
+{
+  "maxSupportedAPIVersion": 8,
+  "minSupportedAPIVersion": 1,
+  "verificationResults": [
+    {
+      "proofs": [
+        {
+          "sources": [],
+          "verified": false,
+          "additionalInfo": "Registered in blockchain Ethereum.4 using TxId or Id 0xfcad1fa0c355545facec93c9767026fdd2f58eef04f6448a190def986d0d54e9 at 2020-10-21 23:31:01 UTC\nVerification failed due to: Original document hash does not equal document hash contained in Seal."
+        },
+        {
+          "sources": [],
+          "verified": false,
+          "additionalInfo": "Registered in blockchain Bitcoin.test using TxId or Id 2c6bf1766cc19ac3c2760fe54a512016632a52b705bacaefdfb523a09502600b at 2020-10-21 23:38:01 UTC\nVerification failed due to: Original document hash does not equal document hash contained in Seal."
+        }
+      ],
+      "verified": false,
+      "isComplete": true
+    }
+  ]
+}
+```
+
+Let's have a look at another case, where the Seal is manipulated and a fake hash was insert into the Seal. The `/verifyseal` call will response as follows:
+
+```
+{
+  "maxSupportedAPIVersion": 8,
+  "minSupportedAPIVersion": 1,
+  "verificationResults": [
+    {
+      "proofs": [
+        {
+          "sources": [],
+          "verified": false,
+          "additionalInfo": "Registered in blockchain Ethereum.4 using TxId or Id 0xfcad1fa0c355545facec93c9767026fdd2f58eef04f6448a190def986d0d54e9 at 2020-10-21 23:31:01 UTC\nVerification failed due to: Calculated anchor does not equal stored anchor in Seal."
+        },
+        {
+          "sources": [],
+          "verified": false,
+          "additionalInfo": "Registered in blockchain Bitcoin.test using TxId or Id 2c6bf1766cc19ac3c2760fe54a512016632a52b705bacaefdfb523a09502600b at 2020-10-21 23:38:01 UTC\nVerification failed due to: Original document hash does not equal document hash contained in Seal."
+        }
+      ],
+      "verified": false,
+      "isComplete": true
+    }
+  ]
+}
+```
+## JSON example 
 
 Using JSON:
 ```
@@ -182,8 +368,9 @@ returns
 
 }
 ```
+## URL encoding example 
 
-Or using URL encoding:
+Using URL encoding:
 
 ```
 curl -sS --header "X-ApiKey: TskZZ8Zc2QzE3G/lxvUnWPKMk27Ucd1tm9K+YSPXWww= vV+2buaDD5aAcCQxCtk4WRJs+yK/BewThR1qUXikdJo=" --data "provideInstructions=true&verifyDocHashes=1111111111111111111111111111111111111111111111111111111111111111&seals=%7B%0A%20%20%22bundleMethod%22%3A%20%22BALANCED_MERKLE_TREE%22%2C%0A%20%20%22operations%22%3A%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22lookupInfo%22%3A%20%2217%22%2C%0A%20%20%20%20%20%20%22opcode%22%3A%20%22DOCUMENTINFO%22%2C%0A%20%20%20%20%20%20%22submittedAt%22%3A%201564454366050%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22blockChainId%22%3A%20%220x6a98749ff3eca810881b842e09cedfcabc478a6994661d1e534b6f31299bfe5b%22%2C%0A%20%20%20%20%20%20%22instanceName%22%3A%20%224%22%2C%0A%20%20%20%20%20%20%22insertedIntoBlockchainAt%22%3A%201564454401831%2C%0A%20%20%20%20%20%20%22opcode%22%3A%20%22BLOCKCHAIN%22%2C%0A%20%20%20%20%20%20%22blockchainGeneralName%22%3A%20%22Ethereum%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22docHash%22%3A%20%221111111111111111111111111111111111111111111111111111111111111111%22%2C%0A%20%20%20%20%20%20%22opcode%22%3A%20%22DOC_SHA256%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22opcode%22%3A%20%22APPEND_THEN_SHA256%22%2C%0A%20%20%20%20%20%20%22hash%22%3A%20%222222222222222222222222222222222222222222222222222222222222222222%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22opcode%22%3A%20%22APPEND_THEN_SHA256%22%2C%0A%20%20%20%20%20%20%22hash%22%3A%20%22b4604b44fdbc2ea9d3b7387d9dcd43a8603c6194b6a4bcf7465829d46aa56359%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22opcode%22%3A%20%22ANCHOR_SHA256%22%2C%0A%20%20%20%20%20%20%22hash%22%3A%20%22a77bb697d9d9acb10cbd8703426b977efa92b09d83ab676a2d4a7353c06fb8fb%22%0A%20%20%20%20%7D%0A%20%20%5D%2C%0A%20%20%22version%22%3A%207%0A%7D" https://developers.cryptowerk.com/platform/API/v6/verify | jq
@@ -241,7 +428,6 @@ returns
 
 }
 ```
-
 
 It is important to add in the first example: "Content-type: application/json”.  
 
