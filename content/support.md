@@ -15,10 +15,3 @@ If you are a production customer and you have questions regarding your account, 
 
 
 We look forward meeting you in our online community!
-
-
-<CommunityAuthor
-    name="Zoe Meckbach"
-    description="Customer Success Manager"
-    imageUrl="https://media.licdn.com/dms/image/C4E03AQFqaNCggsi3Hg/profile-displayphoto-shrink_200_200/0?e=1576713600&v=beta&t=RMRm3nixierWzvrQdevQtCWDLww2d2bi20SlSUONxas"
-/>
