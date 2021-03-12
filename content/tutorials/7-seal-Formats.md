@@ -10,7 +10,7 @@ The following examples are experimental and are subject to change.
 
 ### Seal as HTML Page
 
-Traditionally a Seal is returned via the `/getseal` method as a JSON object. If you would like to poll for a Seal and have HTML content returned use the following:
+Traditionally a Seal is returned via the `/getseal` method as a JSON object. If you would like to poll for a Seal and have HTML content returned, here is an example endpoint, header, and body:
 ```
 POST {{baseUrlHorizon}}/platform/API/v8/getseal HTTP/1.1
 x-api-key: {{testHorizon}}
