@@ -32,7 +32,7 @@ const config = {
 					"/support"
 				],
 		"collapsedNav": [
-      "/tutorials"
+      "/faq"
     	],
 		"links": [
 			{"text": "User Guide", "link": "https://developers.cryptowerk.com/platform/permalink/sealapiguide"},

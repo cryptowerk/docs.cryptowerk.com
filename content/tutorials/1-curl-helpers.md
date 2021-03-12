@@ -57,7 +57,8 @@ server="https://developers.cryptowerk.com/platform"
 
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333&lookupInfos=kmm1,kmm2,kmm3" \
+--data "hashes=2221111111111111111111111111111111111111111111111111111111111111,1112222222222222222222222222222222222222222222222222222222222222,1113333333333333333333333333333333333333333333333333333333333333\
+&lookupInfos=kmm1,kmm2,kmm3" \
 $server/API/v6/register \
 | tee ~/cw-temp/register.$$.json \
 | jq
@@ -69,7 +70,8 @@ $server/API/v6/register \
 
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "provideInstructions=false&verifyDocHashes=2221111111111111111111111111111111111111111111111111111111111111&seals=$(urlEncode "$(jq --raw-output <~/cw-temp/verify.$$.json '.documents[0].seals[0]'${jqStamp})")" \
+--data "provideInstructions=false&verifyDocHashes=2221111111111111111111111111111111111111111111111111111111111111\
+&seals=$(urlEncode "$(jq --raw-output <~/cw-temp/verify.$$.json '.documents[0].seals[0]'${jqStamp})")" \
 $server/API/v6/verify \
 | jq
 
@@ -92,7 +94,8 @@ This call may return a lot of retrieval-IDs and Seals.
 
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "retrievalDocHash=1113333333333333333333333333333333333333333333333333333333333333&provideVerificationInfos=false${sealFormat}" \
+--data "retrievalDocHash=1113333333333333333333333333333333333333333333333333333333333333\
+&provideVerificationInfos=false${sealFormat}" \
 $server/API/v6/verify \
 | tee ~/cw-temp/verify_by_hash.$$.json \
 | jq
@@ -103,7 +106,8 @@ _______
 
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333&lookupInfos=17,18,19" \
+--data "hashes=1111111111111111111111111111111111111111111111111111111111111111,2222222222222222222222222222222222222222222222222222222222222222,3333333333333333333333333333333333333333333333333333333333333333\
+&lookupInfos=17,18,19" \
 $server/API/v6/register \
 | tee /tmp/register.$$.json \
 | jq
@@ -122,7 +126,8 @@ A more detailed description on this step can be found in the tutorial ["Retrieve
 3. Verify a hash with matching Seal                        
 ```
 curl -sS --header "X-ApiKey: $apiKey $apiCred" \
---data "provideInstructions=true&verifyDocHashes=1111111111111111111111111111111111111111111111111111111111111111&seals=$(urlEncode "$(jq --raw-output </tmp/verify.$$.json '.documents[0].seals[0]'${jqStamp})")" \
+--data "provideInstructions=true&verifyDocHashes=1111111111111111111111111111111111111111111111111111111111111111\
+&seals=$(urlEncode "$(jq --raw-output </tmp/verify.$$.json '.documents[0].seals[0]'${jqStamp})")" \
 $server/API/v6/verify \
 | jq
 ```
