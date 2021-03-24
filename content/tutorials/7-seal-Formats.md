@@ -41,6 +41,22 @@ accept: application/json
 Here is an example of such a PDF Seal 
 [here](https://developers.cryptowerk.com/platform/API/v8/getseal?retrievalIds=ri31654973711edf92c37bfbdf4f803d9daf1dd9d2a8eca1ee17433241dd9327636&sealWrapper=certificatePDF&extract=documents%5B0%5D.certificatePDF&extractAs=application%2Fpdf%3BdecodeFrom%3Dbase64&extractDisposition=inline%3Bfilename%3Dcertificate.pdf)
 
+Let's deconstruct that URL:
+https://developers.cryptowerk.com/platform/API/v8/getseal
+?retrievalIds=ri31654973711edf92c37bfbdf4f803d9daf1dd9d2a8eca1ee17433241dd9327636
+&sealWrapper=certificatePDF
+&extract=documents[0].certificatePDF 
+&extractAs=application/pdf;decodeFrom=base64
+&extractDisposition=inline;filename=certificate.pdf
+
+When URL encoded becomes:
+https://developers.cryptowerk.com/platform/API/v8/getseal?
+retrievalIds=ri31654973711edf92c37bfbdf4f803d9daf1dd9d2a8eca1ee17433241dd9327636
+&sealWrapper=certificatePDF
+&extract=documents%5B0%5D.certificatePDF
+&extractAs=application%2Fpdf%3BdecodeFrom%3Dbase64
+&extractDisposition=inline%3Bfilename%3Dcertificate.pdf
+
 ### Seal as QR Code
 
 If you would like to poll for a Seal and have a QR Code returned use the following:
