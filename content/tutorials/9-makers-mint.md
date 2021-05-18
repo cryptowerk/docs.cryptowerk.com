@@ -44,7 +44,7 @@ To digitally sign a file you will need a so-called Keypair. The Keypair consists
 If you are using an Ethereum crypto wallet like MetaMask you might want to use your wallet key also for signing. In that case copy your private key from your wallet. This is typically found in `account details->Export Private Key`. Paste that value into the `Paste private key here...` box and press the import pasted key button. This is a 64 charter alphanumeric base64 encoded string.
 We do NOT recommend to use you wallet key also for signing. It's generally better (and safer) to keep them separate. However, there are some corner cases where this functionality may come in handy.
 
-If you are importing a key from another source, Maker's Mint supports both Elliptic curves secp256k1 (same as Bitoin and Ethereum) and X9_62_prime256v1 (ANSI). You may either paste the private key as text (like the Ethereum Metamask example above) or import the private key as a .DER file.
+If you are importing a key from another source, Maker's Mint supports both Elliptic curves secp256k1 (same as Bitcoin and Ethereum) and X9_62_prime256v1 (ANSI). You may either paste the private key as text (like the Ethereum Metamask example above) or import the private key as a .DER file.
 
 Exporting your Keypair from the app is easy. When the `Export Keypair` button is pressed three files will be stored in the selected directory: 
  - MakersMint.signaturekey.private.der
