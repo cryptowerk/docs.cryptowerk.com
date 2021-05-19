@@ -35,6 +35,8 @@ To verify a file, signature or Seal simply drag and drop the file onto the app a
 
 ![Verify Signed and Sealed Files](mm-verify.png)
 
+You will notice a `Verify Only` checkbox. Selecting this option will stop the app from listening for new or changed files and automatically sealing them. This 'verify mode' is useful if you are the recipient of sealed files.
+
 ## Keypairs for Signing
 To digitally sign a file you will need a so-called Keypair. The Keypair consists of a Public Key and a Private Key. If you don't have a Keypair, the app will create a pair for you. Simply check the box `Provide Signatures` and you are all set. 
 
