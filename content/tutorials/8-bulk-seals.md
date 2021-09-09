@@ -6,7 +6,7 @@ metaDescription: "Bulk Seal - Cryptowerk Tutorials"
 
 ## Options For Bulk Seals
 
-The following examples are not yet finalized and may be subject to change. Using the Bulk Seal in production might also require an additional license. 
+The following few examples are not yet finalized and may be subject to change. Using the Bulk Seal in production might also require an additional license.
 
 ### Bulk Seal - One Small Seal Represents A Collection of Hashes
 
