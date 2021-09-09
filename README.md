@@ -15,8 +15,10 @@ Get started by running the following commands:
 
 ```
 $ git clone https://github.com/cryptowerk/docs.cryptowerk.com.git
+$ cd docs.cryptowerk.com
 $ npm install
 $ npm start
+$ # optionally: ./node_modules/.bin/gatsby telemetry --disable
 ```
 
 Visit `http://localhost:8000/` to view the app.
